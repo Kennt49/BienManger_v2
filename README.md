@@ -23,6 +23,8 @@ Pour se projet nous avons utilisés VueJS ainsi que plusieurs de ces plugins(rou
 ------------------------------------
 ![](./src/assets/Page_creation_phone.png)
 
+____________________________________________________
+
 
 
 ### Lints and fixes files
