@@ -36,10 +36,11 @@ export default {
     },
     methods: {
         retourData() {
-            fetch(conUrl + "/recipe")
+            fetch(process.env.VUE_APP_CON_URL + "/recipe")
                 .then(data => data.json())
                 .then(data => {
                     this.$store.commit('updateData', data);
+
                     // console.log(this.$store.state.retourData);
                 }) //this.retourData);
 
