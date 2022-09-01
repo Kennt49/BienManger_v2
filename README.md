@@ -16,9 +16,13 @@ Pour se projet nous avons utilisés VueJS ainsi que plusieurs de ces plugins(rou
 ### Maquettes figma
 
 ![](./src/assets/Page_1-A_phone.png)
+------------------------------------
 ![](./src/assets/Page_2-A_phone.png)
+------------------------------------
 ![](./src/assets/Page_3-A_phone.png)
+------------------------------------
 ![](./src/assets/Page_creation_phone.png)
+
 
 
 ### Lints and fixes files
