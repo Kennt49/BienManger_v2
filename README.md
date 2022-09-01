@@ -14,6 +14,7 @@ Pour se projet nous avons utilisés VueJS ainsi que plusieurs de ces plugins(rou
 ```
 
 ### Maquettes figma
+>Maquette version Smartphone
 
 ![](./src/assets/Page_1-A_phone.png)
 ------------------------------------
@@ -24,6 +25,16 @@ Pour se projet nous avons utilisés VueJS ainsi que plusieurs de ces plugins(rou
 ![](./src/assets/Page_creation_phone.png)
 
 ____________________________________________________
+>Voici la version Ordinateur
+
+![](./src/assets/Page_1-A_PC.png)
+------------------------------------
+![](./src/assets/Page_2-A_PC.png)
+------------------------------------
+![](./src/assets/Page_3-A_PC.png)
+------------------------------------
+![](./src/assets/Page_creation_PC.png)
+
 
 
 
