@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import retourDataView from '@/views/retourDataView'
+import RecetteUniqView from '@/views/RecetteUniqView'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/retourData',
     name: 'retourData',
     component: retourDataView
+  },
+  {
+    path: '/recetteUniq',
+    name: 'recetteUniq',
+    component: RecetteUniqView
   },
   {
     path: '/about',
