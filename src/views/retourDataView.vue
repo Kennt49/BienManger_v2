@@ -40,9 +40,7 @@ export default {
                 .then(data => data.json())
                 .then(data => {
                     this.$store.commit('updateData', data);
-                    console.log(this.$store.state.retourData);
-                    // console.log(this.$store.state.retourData);
-                }) //this.retourData);
+                }) 
         },
  voir(event){
     let val = event.target.getAttribute('data-value');
@@ -50,7 +48,7 @@ export default {
                 .then(data => data.json())
                 .then(data => {
                     this.$store.commit('recepUniq', data);
-                    console.log(this.$store.state.RecetteUniq?.recettes );})
+                    })
     this.$router.push("/recetteUniq") ;
 
 
