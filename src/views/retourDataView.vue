@@ -10,14 +10,16 @@
                 <div>pour la saison d{{ saisons[(recette.saison_id) - 1].Name }}</div>
                 <div>nombre de convives {{ recette.guest }}</div>
                 <div>{{ recette.description }} </div>
+                <img src={{image[(recette.id)].url}} />
             </div>
 
         </div>
     </div>
 
+
 </template>
 <script>
-
+// <img src=image[(recette.id)].url />//
 
 
 
@@ -32,17 +34,19 @@ export default {
         },
         recettes() {
             return this.$store.state.retourData?.recettes;
+        },
+        image() {
+            return this.$store.state.retourData?.images;
         }
     },
-    created() {
-        fetch(process.env.VUE_APP_CON_URL + "/recipe")
-            .then(data => data.json())
-            .then(data => {
-                this.$store.commit('updateData', data);
-            })
-    },
     methods: {
-
+        created() {
+            fetch(process.env.VUE_APP_CON_URL + "/recipe")
+                .then(data => data.json())
+                .then(data => {
+                    this.$store.commit('updateData', data);
+                })
+        },
         voir(event) {
             let val = event.target.getAttribute('data-value');
             fetch(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
