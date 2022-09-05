@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+}
+
+p {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.back-color {
+    background-color: #ECE4B7;
+}
+
+.backblock-color {
+    background-color: #EABE7C;
+}
+
+.text-color {
+    background-color: #DD6031;
+}
+
+.styleblock-radius {
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 4%;
+}
+
+.gridblock-template {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "col1 col2 col3";
+}
+
+.bold {
+    font-weight: bold;
+    text-transform: capitalize;
+}
