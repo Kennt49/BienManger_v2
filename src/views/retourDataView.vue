@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <p @click="created">dede</p>
+            <p @click="created">idrater</p>
         </div><br>
 
         <div>
