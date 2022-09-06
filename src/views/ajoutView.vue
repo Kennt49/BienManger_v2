@@ -21,19 +21,34 @@
                     </option>
                 </select>
             </div>
+
             <legend>etapes de la recette</legend>
-            <div id="leschamps_1">1</div><input type="text" name="name_1" /><br />
-            <span id="leschamps_2"><a @click="create_champ">Ajouter un champs</a></span>
-           
-
+            <div v-for="(etape, index) of etapes" :key="index">
+                <div>{{index+1}}</div><input type="text" v-model="etapes[index]" /><br />
+            </div>
+            <a @click="create_champ">Ajouter une étape</a>
         </div>
-        <div>
-            <input type="submit" value="Creer">
-
-            <p @click="valid">Valider</p>
-        </div><br>
-
     </div>
+    <div>
+        <legend>liste des ingredients</legend>
+        <div v-for="(elem, index) of elements" :key="index">
+            <select v-model="elements[index]">
+                <option></option>
+                <option v-for="(ingre, i) of ingredients" :key=i :value=ingre.id> {{ingre.Name}}</option>
+
+            </select>
+            <br />
+        </div>
+        <a @click="ajoutIngre">Ajouter un ingredient</a>
+    </div>
+
+
+
+    <div>
+        <p @click="valid">Valider</p>
+    </div><br>
+
+
 
 
 </template>
@@ -44,7 +59,9 @@ export default {
     computed: {
         saisons() {
             return this.$store.state.retourData?.saisons;
-
+        },
+        ingredients() {
+            return this.$store.state.retourData?.element;
         },
         plats() {
             return this.$store.state.retourData?.plats;
@@ -58,13 +75,15 @@ export default {
                 {
                     Name: "",
                     guest: 2,
-                    description:"",
+                    description: "",
                     saison_id: "",
                     plat_id: "",
 
                 }
-            ]
-            
+            ],
+            etapes: [''],
+            elements: [''],
+
 
         }
     },
@@ -73,13 +92,11 @@ export default {
             console.log('sdfghjktre');
         },
         create_champ() {
-            let i = 2;
-            let i2 = 3;
-            document.getElementById('leschamps_' + i).innerHTML = '\'<span id="num_\'+i\'">' + i + '</span>\'<br /><input type="text" name="name_' + i + '"></span>';
-            document.getElementById('leschamps_' + i).innerHTML += (i <= 40) ? '<br /><span id="leschamps_' + i2 + '"><a @click="create_champ(' + i2 + ')">Ajouter un champs</a></span>' : '';
-
-            i = i + 1;
-            i2 = i2 + 1;
+            this.etapes.push('');
+        },
+        ajoutIngre() {
+            this.elements.push('');
+            console.log(this.elements);
         }
     }
 }
