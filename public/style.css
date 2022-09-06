@@ -40,6 +40,9 @@ p {
 
 .bold {
     font-weight: bold;
+}
+
+.text-capitalize {
     text-transform: capitalize;
 }
 
@@ -63,20 +66,20 @@ p {
     justify-content: center;
 }
 
-.gridblock-2col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "col1 col2";
-}
-
 .gridblock-3col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
     grid-template-areas:
         "col1 col2 col3";
+}
+
+.gridblock-6col {
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "col4 col5 col6";
 }
 
 .position-absolute-center {
