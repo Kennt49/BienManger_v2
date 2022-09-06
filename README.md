@@ -21,6 +21,7 @@ Pour se projet nous avons utilisés VueJS ainsi que plusieurs de ces plugins(rou
 ![](./src/assets/Page_2-A_phone.png)
 ------------------------------------
 ![](./src/assets/Page_3-A_phone.png)
+![](./src/assets/Menu_burger_Page_3-A_Phone.png)
 ------------------------------------
 ![](./src/assets/Page_creation_phone.png)
 
