@@ -4,14 +4,16 @@
         <div>
             <div>
 
-                <p class="backblock-color" v-on:click="vers">retour</p>
+                <p class="backblock-color styleblock-radius" v-on:click="vers">retour</p>
             </div><br>
 
             <div>
                 <div v-for="(recette, index) in uneRecette" :key="index">
-                    <h3> {{ recette.Name }} <br></h3>
-                    <div>nombre de convives {{ recette.guest }}<br> </div>
-                    <div>pour la saison d{{ saisons[(recette.saison_id) - 1].Name }}</div>
+                    <h1 class="backblock-color styleblock-radius">{{ recette.Name }} </h1>
+                    <div class="backblock-color styleblock-radius">Pour {{ recette.guest }} personnes</div>
+                    <div class="backblock-color styleblock-radius">Préparez-le en{{ saisons[(recette.saison_id) -
+                            1].Name
+                    }}</div>
                 </div>
 
                 <div v-for="(etape, index) in etapes" :key="index">
