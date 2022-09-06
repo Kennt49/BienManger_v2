@@ -114,7 +114,7 @@ export default {
         newIngEnv() {
             fetch(process.env.VUE_APP_CON_URL +'', {
                 method: "POST",
-                body: JSON.strringify(this.NewIngred),
+                body: JSON.stringify(this.NewIngred),
             })
                 .then((data)=> data.json());
 
