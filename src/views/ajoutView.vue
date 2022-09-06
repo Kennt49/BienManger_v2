@@ -36,14 +36,20 @@
                 <option></option>
                 <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id> {{ingred.Name}}</option>
 
-            </select> 
-            <input type="text" v-model="elem.quantity" /><div>{{elem.unit}}</div>
-           
+            </select>
+            <input type="text" v-model="elem.quantity" />
+
             <br />
         </div>
         <a @click="ajoutIngre">Ajouter un ingredient</a>
     </div>
+    <div>
+        <h5>Entre un nouvelle ingredient</h5>
+        <input type="text" v-model="NewIngred.Name" />
+        <input type="text" v-model="NewIngred.unit" />
+        <p @click="newIngEnv">propose</p>
 
+    </div>
 
 
 
@@ -69,6 +75,7 @@ export default {
         plats() {
             return this.$store.state.retourData?.plats;
         },
+
     },
 
 
@@ -87,11 +94,13 @@ export default {
             etapes: [''],
             ingre: { ingredient_id: 0, quantity: 0 },
             elements: [{ ingredient_id: 0, quantity: 0 }],
-
-
-
+            NewIngred: { Name: '', unit: '' },
         }
+
+
+
     },
+
     methods: {
         valid() {
             console.log('sdfghjktre');
@@ -100,12 +109,18 @@ export default {
             this.etapes.push('');
         },
         ajoutIngre() {
-            this.elements.push({...this.ingre});
-
-
+            this.elements.push({ ...this.ingre });
+        },
+        newIngEnv() {
+            fetch(process.env.VUE_APP_CON_URL +'', {
+                method: "POST",
+                body: JSON.strringify(this.NewIngred),
+            })
+                .then((data)=> data.json());
 
 
         }
+
     }
 }
 </script>
