@@ -151,6 +151,16 @@ p {
     justify-content: center;
 }
 
+.mention_legales {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(41, 41, 41);
+}
+
+.texte_mention {
+    color: white;
+}
 
 @media screen and (min-width: 540px) {
 
