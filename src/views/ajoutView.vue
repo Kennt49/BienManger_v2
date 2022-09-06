@@ -32,15 +32,18 @@
     <div>
         <legend>liste des ingredients</legend>
         <div v-for="(elem, index) of elements" :key="index">
-            <select v-model="elements[index]">
+            <select v-model="elem.ingredient_id">
                 <option></option>
-                <option v-for="(ingre, i) of ingredients" :key=i :value=ingre.id> {{ingre.Name}}</option>
+                <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id> {{ingred.Name}}</option>
 
-            </select>
+            </select> 
+            <input type="text" v-model="elem.quantity" /><div>{{elem.unit}}</div>
+           
             <br />
         </div>
         <a @click="ajoutIngre">Ajouter un ingredient</a>
     </div>
+
 
 
 
@@ -82,7 +85,9 @@ export default {
                 }
             ],
             etapes: [''],
-            elements: [''],
+            ingre: { ingredient_id: 0, quantity: 0 },
+            elements: [{ ingredient_id: 0, quantity: 0 }],
+
 
 
         }
@@ -95,8 +100,11 @@ export default {
             this.etapes.push('');
         },
         ajoutIngre() {
-            this.elements.push('');
-            console.log(this.elements);
+            this.elements.push({...this.ingre});
+
+
+
+
         }
     }
 }

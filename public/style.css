@@ -134,12 +134,22 @@ p {
     border-color: transparent;
 }
 
-.bi-search-heart-fill {
+.bi-search {
     color: black;
     font-size: 95%;
 }
 
 .bi-arrow-left-circle-fill {
+    color: black;
+    font-size: 95%;
+}
+
+.bi-trash-fill {
+    color: black;
+    font-size: 95%;
+}
+
+.bi-pen-fill {
     color: black;
     font-size: 95%;
 }
@@ -162,6 +172,16 @@ p {
     justify-content: center;
 }
 
+.mention_legales {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(41, 41, 41);
+}
+
+.texte_mention {
+    color: white;
+}
 
 @media screen and (min-width: 540px) {
 
