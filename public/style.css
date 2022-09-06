@@ -113,7 +113,6 @@ p {
 .container-fluid {
     display: flex;
     flex-direction: row;
-    padding: 0px;
 }
 
 .navbar-brand {
@@ -122,10 +121,10 @@ p {
 }
 
 .navbar.bg-light {
-    height: 8vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
-    padding: 0px;
+    margin: 0;
 }
 
 .btn {
@@ -153,6 +152,24 @@ p {
     color: black;
     font-size: 95%;
 }
+
+.bi-plus {
+    color: black;
+    font-size: 85%;
+}
+
+.button_plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 2vh;
+    background-color: grey;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
 
 .title {
     display: flex;
