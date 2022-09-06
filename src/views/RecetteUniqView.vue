@@ -20,8 +20,8 @@
                             v-on:click="vers"><i class="bi bi-arrow-left-circle-fill"></i></button>
                     </div>
                     <div class="display">
-                        <button type="button" class="btn display btn-outline-primary"><i
-                                class="bi bi-search-heart-fill"></i></button>
+                        <button type="button" class="btn display btn-outline-primary">
+                            <i class="bi bi-search-heart-fill"></i></button>
                     </div>
                 </div>
             </div>
@@ -31,28 +31,26 @@
                 <br>
                 <div v-for="(recette, index) in uneRecette" :key="index">
                     <h1 class="backblock-title-color styleblock-title-radius displayblock-center">
-                        <article class="bold"> {{ recette.Name }} </article>
-                    </h1>
-                    <br>
+                        <article class="bold text-capitalize"> {{ recette.Name }} </article>
+                    </h1><br>
                     <div class="gridblock-3col">
                         <div class="backblock-color styleblock-radius">Pour
-                            <article class="bold"> {{ recette.guest }} </article> personnes
+                            <article class="bold text-capitalize"> {{ recette.guest }} </article> personnes
                         </div>
                         <div class="backblock-color styleblock-radius">A préparer en
-                            <article class="bold"> {{saisons[(recette.saison_id)-1].Name}} </article>
+                            <article class="bold text-capitalize"> {{saisons[(recette.saison_id)-1].Name}} </article>
                         </div>
                         <div class="backblock-color styleblock-radius">A servir <br> en
-                            <article class="bold"> {{plat[(recette.plat_id)-1].menu}} </article>
+                            <article class="bold text-capitalize"> {{plat[(recette.plat_id)-1].menu}} </article>
                         </div>
                     </div>
                 </div>
-                <div class="gridblock-2col">
-                    <div class="col1" v-for="(ingredient, index) in ingredients" :key="index">
-                        <div> {{ element[(ingredient.ingredients_id) - 1].Name }}</div>
-                        <div class="col2"> {{ ingredient.quantity }} {{ element[(ingredient.ingredients_id) - 1].unité}}
-                            <br>
-                        </div>
-                    </div>
+                <br>
+                <div class="gridblock-6col" v-for="(ingredient, index) in ingredients" :key="index">
+                    <div class="text-capitalize backblock-title-color styleblock-radius"> {{
+                    element[(ingredient.ingredients_id) - 1].Name }} </div>
+                    <div> {{ ingredient.quantity }} </div>
+                    <div> {{ element[(ingredient.ingredients_id) - 1].unit}}</div>
                 </div>
                 <div v-for="(etape, index) in etapes" :key="index">
                     <div><br>Etape {{ etape.number }} <br></div>
