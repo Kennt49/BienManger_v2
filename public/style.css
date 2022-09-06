@@ -82,12 +82,6 @@ p {
         "col4 col5 col6";
 }
 
-.position-absolute-center {
-    position: absolute;
-    top: 50%;
-    text-align: center;
-}
-
 /*Css class for navbar (bootstrap)*/
 
 .display {
