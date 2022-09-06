@@ -1,39 +1,65 @@
 <template>
 
     <body class="back-color">
+        <nav class="navbar bg-light">
+            <div class="container-fluid navbar-back-color">
+                <a class="navbar-brand" href="#">
+                    <div class="display">
+                        <div class="div_logo">
+                            <img class="logo_nav" src="../assets/Logo_bien-manger.png" alt="">
+                        </div>
+                    </div>
+                    <div class="title">
+                        <h1>Bien-Manger</h1>
+                    </div>
+                </a>
+                <div class="display">
+                    <div class="display">
+                        <button type="button"
+                            class="btn display btn-outline-primary navbar-back-color styleblock-radius"
+                            v-on:click="vers"><i class="bi bi-arrow-left-circle-fill"></i></button>
+                    </div>
+                    <div class="display">
+                        <button type="button" class="btn display btn-outline-primary"><i
+                                class="bi bi-search-heart-fill"></i></button>
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div>
             <div>
-
-                <p class="backblock-color styleblock-radius" v-on:click="vers">retour</p>
-            </div>
-            <br>
-            <div>
+                <br>
                 <div v-for="(recette, index) in uneRecette" :key="index">
-                    <h1 class="backblock-title-color styleblock-radius">
-                        <article class="bold ">{{ recette.Name }} </article>
+                    <h1 class="backblock-title-color styleblock-title-radius displayblock-center">
+                        <article class="bold"> {{ recette.Name }} </article>
                     </h1>
+                    <br>
                     <div class="gridblock-3col">
-                        <div class="backblock-color styleblock-radius">Pour <article class="bold">{{ recette.guest }}
-                            </article> personnes</div>
-                        <div class="backblock-color styleblock-radius">A préparer en <article class="bold">{{
-                        saisons[(recette.saison_id)-1].Name}}</article>
+                        <div class="backblock-color styleblock-radius">Pour
+                            <article class="bold"> {{ recette.guest }} </article> personnes
                         </div>
-                        <div class="backblock-color styleblock-radius">A servir <br> en<article class="bold">
-                                {{plat[(recette.plat_id)-1].menu}}</article>
+                        <div class="backblock-color styleblock-radius">A préparer en
+                            <article class="bold"> {{saisons[(recette.saison_id)-1].Name}} </article>
+                        </div>
+                        <div class="backblock-color styleblock-radius">A servir <br> en
+                            <article class="bold"> {{plat[(recette.plat_id)-1].menu}} </article>
                         </div>
                     </div>
                 </div>
-
+                <div class="gridblock-2col">
+                    <div class="col1" v-for="(ingredient, index) in ingredients" :key="index">
+                        <div> {{ element[(ingredient.ingredients_id) - 1].Name }}</div>
+                        <div class="col2"> {{ ingredient.quantity }} {{ element[(ingredient.ingredients_id) - 1].unité}}
+                            <br>
+                        </div>
+                    </div>
+                </div>
                 <div v-for="(etape, index) in etapes" :key="index">
                     <div><br>Etape {{ etape.number }} <br></div>
                     <div> {{ etape.content }}</div>
                 </div>
-                <div v-for="(ingredient, index) in ingredients" :key="index">
-                    <div><br>quantite {{ ingredient.quantity }} {{ element[(ingredient.ingredients_id) - 1].unité }}
-                        <br>
-                    </div>
-                    <div> {{ element[(ingredient.ingredients_id) - 1].Name }}</div>
-                </div>
+
+
             </div>
         </div>
     </body>

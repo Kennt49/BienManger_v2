@@ -7,6 +7,12 @@ body {
     width: 100vw;
 }
 
+h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    margin-left: 1.2rem;
+}
+
 p {
     margin-left: 10%;
     margin-right: 10%;
@@ -28,15 +34,41 @@ p {
     background-color: #99B5AC;
 }
 
-/*.non-use-for-moment {
+.navbar-back-color {
     background-color: #7E9591;
-}*/
+}
+
+.bold {
+    font-weight: bold;
+    text-transform: capitalize;
+}
 
 .styleblock-radius {
     height: auto;
     margin-left: 5%;
     margin-right: 5%;
     border-radius: 5%;
+}
+
+.styleblock-title-radius {
+    height: 20vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 5%;
+}
+
+.displayblock-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gridblock-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "col1 col2";
 }
 
 .gridblock-3col {
@@ -47,10 +79,13 @@ p {
         "col1 col2 col3";
 }
 
-.bold {
-    font-weight: bold;
-    text-transform: capitalize;
+.position-absolute-center {
+    position: absolute;
+    top: 50%;
+    text-align: center;
 }
+
+/*Css class for navbar (bootstrap)*/
 
 .display {
     display: flex;
@@ -81,20 +116,14 @@ p {
     border-color: transparent;
 }
 
-.bi-search {
+.bi-search-heart-fill {
     color: black;
     font-size: 95%;
 }
 
-.bi-align-middle {
+.bi-arrow-left-circle-fill {
     color: black;
     font-size: 95%;
-}
-
-h1 {
-    font-size: 1.2rem;
-    margin: 0;
-    margin-left: 1.2rem;
 }
 
 .title {
@@ -140,7 +169,6 @@ h1 {
 
 @media screen and (min-width: 1024px) {
 
-    /* put your code here */
     .btn {
         padding: 10px 14px 10px 14px;
     }
