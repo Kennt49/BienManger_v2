@@ -46,6 +46,19 @@ p {
     text-transform: capitalize;
 }
 
+.text-align-left {
+    text-align: left;
+    padding-left: 4vw;
+}
+
+.radiusblock-top-left {
+    border-top-left-radius: 10%;
+}
+
+.radiusblock-bottom-left {
+    border-bottom-left-radius: 10%;
+}
+
 .styleblock-radius {
     height: auto;
     margin-left: 5%;
@@ -74,18 +87,20 @@ p {
         "col1 col2 col3";
 }
 
-.gridblock-6col {
+.gridblock-7col {
     display: grid;
-    grid-template-columns: 3fr 1fr 2fr;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "col7 col8";
+}
+
+.gridblock-10col {
+    display: grid;
+    grid-template-columns: 5fr 2fr 3fr;
     grid-template-rows: auto auto;
     grid-template-areas:
         "col4 col5 col6";
-}
-
-.position-absolute-center {
-    position: absolute;
-    top: 50%;
-    text-align: center;
 }
 
 /*Css class for navbar (bootstrap)*/

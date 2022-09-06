@@ -46,15 +46,29 @@
                     </div>
                 </div>
                 <br>
-                <div class="gridblock-6col" v-for="(ingredient, index) in ingredients" :key="index">
-                    <div class="text-capitalize backblock-title-color styleblock-radius"> {{
-                    element[(ingredient.ingredients_id) - 1].Name }} </div>
-                    <div> {{ ingredient.quantity }} </div>
-                    <div> {{ element[(ingredient.ingredients_id) - 1].unit}}</div>
-                </div>
-                <div v-for="(etape, index) in etapes" :key="index">
-                    <div><br>Etape {{ etape.number }} <br></div>
-                    <div> {{ etape.content }}</div>
+                <div class="gridblock-10col bold text-align-left">
+                    <div>Ingrédients</div>
+                    <div>Qté</div>
+                    <div>Unités</div>
+                </div><br>
+                <div class="gridblock-10col text-align-left" v-for="(ingredient, index) in ingredients" :key="index">
+                    <div class="text-capitalize"> {{element[(ingredient.ingredients_id) - 1].Name }}
+                    </div>
+                    <div class="backblock-title-color radiusblock-top-left radiusblock-bottom-left">
+                        {{ingredient.quantity }}
+                    </div>
+                    <div class="backblock-title-color"> {{ element[(ingredient.ingredients_id) - 1].unit}}
+                    </div>
+                </div> <br>
+                <div class="bold text-align-left">
+                    Etapes
+                </div> <br>
+                <div class="gridblock-7col text-align-left" v-for="(etape, index) in etapes" :key="index">
+                    <div> {{ etape.number }}
+                    </div>
+                    <ul>
+                        <li>{{ etape.content }}</li>
+                    </ul>
                 </div>
 
 
