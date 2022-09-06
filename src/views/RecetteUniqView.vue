@@ -1,7 +1,7 @@
 <template>
 
     <body class="back-color">
-        <nav class="navbar bg-light">
+        <nav class="navbar sticky-top">
             <div class="container-fluid navbar-back-color">
                 <a class="navbar-brand" href="#">
                     <div class="display">
@@ -54,10 +54,10 @@
                 <div class="gridblock-10col text-align-left" v-for="(ingredient, index) in ingredients" :key="index">
                     <div class="text-capitalize"> {{element[(ingredient.ingredients_id) - 1].Name }}
                     </div>
-                    <div class="backblock-title-color radiusblock-top-left radiusblock-bottom-left">
+                    <div>
                         {{ingredient.quantity }}
                     </div>
-                    <div class="backblock-title-color"> {{ element[(ingredient.ingredients_id) - 1].unit}}
+                    <div> {{ element[(ingredient.ingredients_id) - 1].unit}}
                     </div>
                 </div> <br>
                 <div class="bold text-align-left">
@@ -70,19 +70,12 @@
                         <li>{{ etape.content }}</li>
                     </ul>
                 </div>
-
-
             </div>
         </div>
     </body>
 </template>
+
 <script>
-
-
-
-
-
-
 export default {
     name: 'RecetteUniqView',
     computed: {
