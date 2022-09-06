@@ -112,12 +112,14 @@ export default {
             this.elements.push({ ...this.ingre });
         },
         newIngEnv() {
-            fetch(process.env.VUE_APP_CON_URL +'', {
+            console.log(this.NewIngred);
+            fetch(process.env.VUE_APP_CON_URL + '/ingredient/add', {
                 method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.NewIngred),
             })
-                .then((data)=> data.json());
-
+                .then((data) => data.json())
+                .then(data => ( this.$store.commit('ajoutIngred', data)));
 
         }
 

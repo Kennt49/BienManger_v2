@@ -13,6 +13,9 @@ export default createStore({
     },
     recepUniq(state, unique) {
       state.RecetteUniq = unique;
+    },
+    ajoutIngred(state, ajout) {
+      state.retourData.element.push(ajout);
     }
   },
   actions: {
