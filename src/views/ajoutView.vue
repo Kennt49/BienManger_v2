@@ -5,7 +5,9 @@
             <input class="titre" type="text" v-model="this.collect.Name" placeholder="couscous" /><br>
             <label for="guest">Nombre de convives</label>
             <input class="guest" type="text" v-model="this.collect.guest" placeholder="2" /><br>
-            <div id="v-model-select" class=""> pour L
+            <label for="guest">Description de la recette</label>
+            <input class="guest" type="text" v-model="this.collect.description" /><br>
+            <div id="v-model-select" class=""> A prepare en
                 <select v-model="this.collect.saison_id">
                     <option>Choisissez la saison</option>
                     <option v-for="(sais, i) of saisons" :key=i :value=sais.id> {{
@@ -13,7 +15,7 @@
                     }}</option>
                 </select>{{ this.collect.saison }}
             </div>
-            <div id="v-model-select" class=""> pour
+            <div id="v-model-select" class=""> A servir en
                 <select v-model="this.collect.plat_id">
                     <option disabled value="">Choisissez le type de plat</option>
                     <option v-for="(plat ,i ) of plats" :key=i :value=plat.id>
@@ -21,42 +23,44 @@
                     </option>
                 </select>
             </div>
+            <p @click="valid">Valider</p>
+            <div v-if="step === 1">
+                <legend>etapes de la recette</legend>
+                <div v-for="(etape, index) of etapes" :key="index">
+                    <div>{{index+1}}</div><input type="text" v-model="etapes[index]" /><br />
+                </div>
+                <a @click="create_champ">Ajouter une étape</a>
 
-            <legend>etapes de la recette</legend>
-            <div v-for="(etape, index) of etapes" :key="index">
-                <div>{{index+1}}</div><input type="text" v-model="etapes[index]" /><br />
+
+                <div>
+                    <legend>liste des ingredients</legend>
+                    <div v-for="(elem, index) of elements" :key="index">
+                        <select v-model="elem.ingredient_id">
+                            <option></option>
+                            <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id> {{ingred.Name}}</option>
+
+                        </select>
+                        <input type="text" v-model="elem.quantity" />
+
+                        <br />
+                    </div>
+                    <a @click="ajoutIngre">Ajouter un ingredient</a>
+                </div>
+                <div>
+                    <h5>Entre un nouvelle ingredient</h5>
+                    <input type="text" v-model="NewIngred.Name" />
+                    <input type="text" v-model="NewIngred.unit" />
+                    <p @click="newIngEnv">propose</p>
+
+                </div>
+                <div>
+                    <p @click="valid">Valider</p>
+                </div><br>
             </div>
-            <a @click="create_champ">Ajouter une étape</a>
         </div>
-    </div>
-    <div>
-        <legend>liste des ingredients</legend>
-        <div v-for="(elem, index) of elements" :key="index">
-            <select v-model="elem.ingredient_id">
-                <option></option>
-                <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id> {{ingred.Name}}</option>
 
-            </select>
-            <input type="text" v-model="elem.quantity" />
-
-            <br />
-        </div>
-        <a @click="ajoutIngre">Ajouter un ingredient</a>
-    </div>
-    <div>
-        <h5>Entre un nouvelle ingredient</h5>
-        <input type="text" v-model="NewIngred.Name" />
-        <input type="text" v-model="NewIngred.unit" />
-        <p @click="newIngEnv">propose</p>
 
     </div>
-
-
-
-    <div>
-        <p @click="valid">Valider</p>
-    </div><br>
-
 
 
 
@@ -81,20 +85,22 @@ export default {
 
     data() {
         return {
-            collect: [
-                {
-                    Name: "",
-                    guest: 2,
-                    description: "",
-                    saison_id: "",
-                    plat_id: "",
+            collect:
+            {
+                Name: "",
+                Slug: "",
+                guest: 2,
+                description: "",
+                saison_id: "",
+                plat_id: "",
 
-                }
-            ],
+            }
+            ,
             etapes: [''],
             ingre: { ingredient_id: 0, quantity: 0 },
             elements: [{ ingredient_id: 0, quantity: 0 }],
             NewIngred: { Name: '', unit: '' },
+            step: 0,
         }
 
 
@@ -103,7 +109,20 @@ export default {
 
     methods: {
         valid() {
-            console.log('sdfghjktre');
+            this.collect.Slug = this.collect.Name;
+            console.log(this.collect);
+             fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(this.collect)
+              })
+  
+                  .then((data) => data.json())
+                  .then(data => (console.log(data)));
+            /* .then(data => (this.$store.commit('ajoutrecette', data)))
+             ;*/
+
+
         },
         create_champ() {
             this.etapes.push('');
@@ -119,7 +138,7 @@ export default {
                 body: JSON.stringify(this.NewIngred),
             })
                 .then((data) => data.json())
-                .then(data => ( this.$store.commit('ajoutIngred', data)));
+                .then(data => (this.$store.commit('ajoutIngred', data)));
 
         }
 
@@ -128,4 +147,5 @@ export default {
 </script>
 
 <style>
+
 </style>
