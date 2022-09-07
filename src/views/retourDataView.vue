@@ -46,6 +46,7 @@ export default {
                 .then(data => {
                     this.$store.commit('updateData', data);
                 })
+               
         },
         voir(event) {
             let val = event.target.getAttribute('data-value');

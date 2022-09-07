@@ -23,11 +23,12 @@
                     </option>
                 </select>
             </div>
-            <p @click="valid">Valider</p>
+            <p v-if="step == 0" @click="valid">Valider</p>
+
             <div v-if="step === 1">
                 <legend>etapes de la recette</legend>
                 <div v-for="(etape, index) of etapes" :key="index">
-                    <div>{{index+1}}</div><input type="text" v-model="etapes[index]" /><br />
+                    <div>{{index+1}}</div><input type="text" v-model="etapes[index].content" /><br />
                 </div>
                 <a @click="create_champ">Ajouter une étape</a>
 
@@ -54,7 +55,7 @@
 
                 </div>
                 <div>
-                    <p @click="valid">Valider</p>
+                    <p @click="valide">Valider</p>
                 </div><br>
             </div>
         </div>
@@ -93,12 +94,14 @@ export default {
                 description: "",
                 saison_id: "",
                 plat_id: "",
+                utilisateur_id: 1,
 
             }
             ,
-            etapes: [''],
-            ingre: { ingredient_id: 0, quantity: 0 },
-            elements: [{ ingredient_id: 0, quantity: 0 }],
+            etapes: [{ number: 1, content: "", recette_id: 0 }],
+            phase: { number: 2, content: "", recette_id: 0 },
+            ingre: { ingredient_id: 0, quantity: 0, recette_id: 0 },
+            elements: [{ ingredient_id: 0, quantity: 0, recette_id: 0 }],
             NewIngred: { Name: '', unit: '' },
             step: 0,
         }
@@ -108,24 +111,37 @@ export default {
     },
 
     methods: {
-        valid() {
+        valid() {//envoie les données vers la BDD de la recette
             this.collect.Slug = this.collect.Name;
             console.log(this.collect);
-             fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(this.collect)
-              })
-  
-                  .then((data) => data.json())
-                  .then(data => (console.log(data)));
-            /* .then(data => (this.$store.commit('ajoutrecette', data)))
-             ;*/
-
+            fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.collect)
+            })
+                .then((data) => data.json())
+                .then(data => (this.$store.commit('ajoutrecette', data)));
+            this.step = 1;
+            this.miseAJour();
+        },
+        valide(){//envoie des etapes et ingredient en base non fini a debugger
+            fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.etapes)
+            })
+                .then((data) => data.json());
+                fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.elements)
+            })
+                .then((data) => data.json());
 
         },
         create_champ() {
-            this.etapes.push('');
+            this.etapes.push({ ...this.phase });
+            this.phase.number = this.phase.number + 1;
         },
         ajoutIngre() {
             this.elements.push({ ...this.ingre });
@@ -140,10 +156,20 @@ export default {
                 .then((data) => data.json())
                 .then(data => (this.$store.commit('ajoutIngred', data)));
 
+        },
+        miseAJour() {
+            let index = this.$store.retourData.recettes.length;
+            index = index - 1;
+            let id = this.$store.retourData.recettes[index].id;
+            this.etapes[0].recette_id = id;
+            this.phase.recette_id = id;
+            this.ingre.recette_id = id;
+            this.element[0].recette_id = id;
+            console.log(id);
         }
-
     }
 }
+
 </script>
 
 <style>
