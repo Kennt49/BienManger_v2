@@ -100,8 +100,8 @@ export default {
             ,
             etapes: [{ number: 1, content: "", recette_id: 0 }],
             phase: { number: 2, content: "", recette_id: 0 },
-            ingre: { ingredient_id: 0, quantity: 0, recette_id: 0 },
-            elements: [{ ingredient_id: 0, quantity: 0, recette_id: 0 }],
+            ingre: { ingredients_id: 0, quantity: 0, recettes_id: 0 },
+            elements: [{ ingredients_id: 0, quantity: 0, recettes_id: 0 }],
             NewIngred: { Name: '', unit: '' },
             step: 0,
         }
@@ -131,7 +131,7 @@ export default {
                 body: JSON.stringify(this.etapes)
             })
                 .then((data) => data.json());
-                fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
+                fetch(process.env.VUE_APP_CON_URL + '/ingredient/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.elements)
