@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div>
-            <p @click="created">idrater</p>
-        </div><br>
 
         <div>
             <div v-for="(recette, index) in recettes" :key="index" v-on:click="voir">
@@ -39,15 +36,16 @@ export default {
             return this.$store.state.retourData?.images;
         }
     },
+    created() {
+        fetch(process.env.VUE_APP_CON_URL + "/recipe")
+            .then(data => data.json())
+            .then(data => {
+                this.$store.commit('updateData', data);
+            })
+
+    },
     methods: {
-        created() {
-            fetch(process.env.VUE_APP_CON_URL + "/recipe")
-                .then(data => data.json())
-                .then(data => {
-                    this.$store.commit('updateData', data);
-                })
-               
-        },
+
         voir(event) {
             let val = event.target.getAttribute('data-value');
             fetch(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
@@ -64,4 +62,5 @@ export default {
 </script>
 
 <style>
+
 </style>
