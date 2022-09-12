@@ -29,19 +29,19 @@
         <div>
             <div>
                 <br>
-                <div v-for="(recette, index) in uneRecette" :key="index">
+                <div >
                     <h1 class="backblock-title-color styleblock-title-radius displayblock-center">
-                        <article class="bold text-capitalize"> {{ recette.Name }} </article>
+                        <article class="bold text-capitalize"> {{uneRecette.Name }} </article>
                     </h1><br>
                     <div class="gridblock-3col">
                         <div class="backblock-color styleblock-radius">Pour
-                            <article class="bold text-capitalize"> {{ recette.guest }} </article> personnes
+                            <article class="bold text-capitalize"> {{ uneRecette.guest }} </article> personnes
                         </div>
                         <div class="backblock-color styleblock-radius">A préparer en
-                            <article class="bold text-capitalize"> {{saisons[(recette.saison_id)-1].Name}} </article>
+                            <article class="bold text-capitalize"> {{uneRecette.saison.Name}} </article>
                         </div>
                         <div class="backblock-color styleblock-radius">A servir <br> en
-                            <article class="bold text-capitalize"> {{plat[(recette.plat_id)-1].menu}} </article>
+                            <article class="bold text-capitalize"> {{uneRecette.plat.menu}} </article>
                         </div>
                     </div>
                 </div>
@@ -49,16 +49,14 @@
                 <div class="gridblock-10col bold text-align-left">
                     <div>Ingrédients</div>
                     <div>Qté</div>
-                    <div>Unités</div>
                 </div><br>
                 <div class="gridblock-10col text-align-left" v-for="(ingredient, index) in ingredients" :key="index">
-                    <div class="text-capitalize"> {{element[(ingredient.ingredients_id) - 1].Name }}
+                    <div class="text-capitalize"> {{ingredient.Name }}
                     </div>
                     <div>
-                        {{ingredient.quantity }}
+                        {{ingredient.ingredients_recettes.quantity }}
                     </div>
-                    <div> {{ element[(ingredient.ingredients_id) - 1].unit}}
-                    </div>
+
                 </div> <br>
                 <div class="bold text-align-left">
                     Etapes
@@ -81,22 +79,19 @@ export default {
     computed: {
 
         etapes() {
-            return this.$store.state.RecetteUniq?.etape;
+            return this.$store.state.RecetteUniq?.etapes;
         },
         uneRecette() {
-            return this.$store.state.RecetteUniq?.recettes;
+            return this.$store.state.RecetteUniq;
         },
         ingredients() {
-            return this.$store.state.RecetteUniq?.ingre_recet;
+            return this.$store.state.RecetteUniq?.ingredients;
         },
         saisons() {
-            return this.$store.state.retourData?.saisons;
-        },
-        element() {
-            return this.$store.state.retourData?.element;
+            return this.$store.state.RecetteUniq?.saison;
         },
         plat() {
-            return this.$store.state.retourData?.plats;
+            return this.$store.state.RecetteUniq?.plat;
         }
     },
     methods: {
@@ -108,4 +103,5 @@ export default {
 </script>
 
 <style>
+
 </style>
