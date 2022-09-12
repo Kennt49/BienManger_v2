@@ -125,13 +125,13 @@ export default {
             this.miseAJour();
         },
         valide(){//envoie des etapes et ingredient en base non fini a debugger
-            fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
+            fetch(process.env.VUE_APP_CON_URL + '/etape/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.etapes)
             })
                 .then((data) => data.json());
-                fetch(process.env.VUE_APP_CON_URL + '/ingredient/add', {
+                fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.elements)
@@ -163,8 +163,8 @@ export default {
             let id = this.$store.retourData.recettes[index].id;
             this.etapes[0].recette_id = id;
             this.phase.recette_id = id;
-            this.ingre.recette_id = id;
-            this.element[0].recette_id = id;
+            this.ingre.recettes_id = id;
+            this.elements[0].recettes_id = id;
             console.log(id);
         }
     }
