@@ -6,7 +6,7 @@
                 <a class="navbar-brand" href="#">
                     <div class="display">
                         <div class="div_logo">
-                            <img class="logo_nav" src="../assets/Logo_bien-manger.png" alt="">
+                            <img class="logo_nav" src="/Logo_bien-manger.png" alt="">
                         </div>
                     </div>
                     <div class="title">
@@ -29,7 +29,7 @@
         <div>
             <div>
                 <br>
-                <div >
+                <div>
                     <h1 class="backblock-title-color styleblock-title-radius displayblock-center">
                         <article class="bold text-capitalize"> {{uneRecette.Name }} </article>
                     </h1><br>
