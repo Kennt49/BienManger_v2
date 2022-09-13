@@ -1,7 +1,9 @@
 <template>
     <div>
-        <div><br>{{ recette.Name }}</div>
-        <div>pour la saison d{{ saisons[(recette.saison_id) - 1].Name }}</div>
+        <div class="bold"><br>{{ recette.Name }}</div>
+        <div>A servir en {{ saisons[(recette.saison_id) - 1].Name }} comme
+            <div class="text-lowercase">{{ plats[(recette.plat_id) - 1].menu}}</div>
+        </div>
         <div>nombre de convives {{ recette.guest }}</div>
         <div>{{ recette.description }} </div>
     </div>
@@ -13,7 +15,8 @@ export default {
         recette: {
             type: Object
         },
-        saisons: { type: Array }
+        saisons: { type: Array },
+        plats: { type: Array },
 
     }
 }

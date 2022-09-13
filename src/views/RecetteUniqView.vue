@@ -1,6 +1,6 @@
 <template>
 
-    <body class="back-color">
+    <body>
         <nav class="navbar sticky-top">
             <div class="container-fluid navbar-back-color">
                 <a class="navbar-brand" href="#"></a>

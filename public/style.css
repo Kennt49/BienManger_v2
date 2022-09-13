@@ -5,26 +5,14 @@
 
 body {
     width: 100vw;
+    background-image: url(backBienManger.jpg);
+    background-size: cover;
+    background-repeat: no repeat;
 }
 
 input {
     border: 0;
     width: 100%;
-}
-
-h1 {
-    font-size: 1.2rem;
-    margin: 0;
-    margin-left: 1.2rem;
-}
-
-p {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.back-color {
-    background-image: url(src/assets/backBienManger.jpg);
 }
 
 .backblock-color {
@@ -43,6 +31,8 @@ p {
     background-color: #7E9591;
 }
 
+
+
 .bold {
     font-weight: bold;
 }
@@ -53,6 +43,10 @@ p {
 
 .text-capitalize {
     text-transform: capitalize;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
 }
 
 .text-align-left {
