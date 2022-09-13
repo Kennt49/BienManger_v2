@@ -80,6 +80,9 @@ export default {
         plats() {
             return this.$store.state.retourData?.plats;
         },
+        recettes() {
+            return this.$store.state.retourData?.recettes;
+        }
 
     },
 
@@ -113,30 +116,30 @@ export default {
     methods: {
         valid() {//envoie les données vers la BDD de la recette
             this.collect.Slug = this.collect.Name;
-            console.log(this.collect);
             fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.collect)
             })
                 .then((data) => data.json())
-                .then(data => (this.$store.commit('ajoutrecette', data)));
+                .then(data => (this.$store.commit('ajoutrecette', data)))
+                .then(this.miseAJour);
             this.step = 1;
-            this.miseAJour();
+
         },
-        valide(){//envoie des etapes et ingredient en base non fini a debugger
+        valide() {//envoie des etapes et ingredient en base non fini a debugger
             fetch(process.env.VUE_APP_CON_URL + '/etape/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.etapes)
             })
                 .then((data) => data.json());
-                fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
+           /* fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.elements)
             })
-                .then((data) => data.json());
+                .then((data) => data.json());*/
 
         },
         create_champ() {
@@ -158,9 +161,10 @@ export default {
 
         },
         miseAJour() {
-            let index = this.$store.retourData.recettes.length;
+            let index = this.recettes.length;
+            console.log(index);
             index = index - 1;
-            let id = this.$store.retourData.recettes[index].id;
+            let id = this.recettes[index].id;
             this.etapes[0].recette_id = id;
             this.phase.recette_id = id;
             this.ingre.recettes_id = id;

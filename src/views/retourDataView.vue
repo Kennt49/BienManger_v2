@@ -1,20 +1,20 @@
 <template>
-
     <body>
-        <div v-for="(recette, index) in recettes" :key="index"><br />
-            <div v-on:click="voir" :data-value="recette.id" style="font-weight: bold">{{ recette.Name }}</div>
-            <div>A servir en {{ saisons[(recette.saison_id) - 1].Name }} comme <div class="text-lowercase">
-                    {{plats[(recette.plat_id)-1].menu}}</div>
-            </div>
-            <div>Pour {{ recette.guest }} personnes</div>
-            <div>{{ recette.description }} </div>
+        <div v-for="(recette, index) in recettes" :key="index">
+            <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" :data-value="recette.id"
+                v-on:click="voir" />
         </div>
     </body>
 </template>
 
 <script>
+import VignetteRecette from '@/components/VignetteRecette'
+
 export default {
     name: 'retourDataView',
+    components: {
+        VignetteRecette
+    },
     computed: {
         saisons() {
             return this.$store.state.retourData?.saisons;
@@ -27,11 +27,7 @@ export default {
         },
     },
     created() {
-        fetch(process.env.VUE_APP_CON_URL + "/recipe")
-            .then(data => data.json())
-            .then(data => {
-                this.$store.commit('updateData', data);
-            })
+        this.$store.dispatch('recupRecettes')
     },
     methods: {
         voir(event) {

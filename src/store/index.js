@@ -23,6 +23,15 @@ export default createStore({
 
   },
   actions: {
+    recupRecettes(contexte) {
+      if (this.state.retourData == undefined) {
+        fetch(process.env.VUE_APP_CON_URL + "/recipe")
+          .then(data => data.json())
+          .then(data => {
+            contexte.commit('updateData', data);
+          })
+      }
+    }
   },
   modules: {
   }
