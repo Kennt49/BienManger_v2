@@ -1,22 +1,16 @@
 <template>
 
     <body class="back">
-        <nav class="navbar opacity sticky-top">
-            <div class="container-fluid navbar-back-color">
-                <a class="navbar-brand" href="#"></a>
-                <div class="gridblock-8col">
-                    <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="">
-                    <h1>Bien-Manger</h1>
-                    <button type="button" class="btn" @click="vers"><i
-                            class="bi bi-arrow-left-circle-fill"></i></button>
-                    <button type="button" class="btn" @click="modify"><i class="bi bi-pencil-fill"></i></button>
-                    <button type="button" class="btn" @click="search"><i class="bi bi-search-heart-fill"></i></button>
-                </div>
-            </div>
+        <nav class="navbar navbar-brand opacity8 sticky-top container-fluid navbar-back-color gridblock-8col">
+            <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="">
+            <h1>Bien-Manger</h1>
+            <button type="button" class="btn" @click="add"><i class="bi bi-plus-circle-fill"></i></button>
+            <button type="button" class="btn" @click="vers"><i class="bi bi-arrow-left-circle-fill"></i></button>
+            <button type="button" class="btn" @click="modify"><i class="bi bi-pencil-fill"></i></button>
+            <button type="button" class="btn" @click="search"><i class="bi bi-search-heart-fill"></i></button>
         </nav>
-        <div v-for="(recette, index) in recettes" :key="index">
-            <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" 
-                v-on:click="voir" />
+        <div class="backblock-color styleblock-radius opacity8" v-for="(recette, index) in recettes" :key="index">
+            <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" v-on:click="voir" />
         </div>
     </body>
 </template>
@@ -46,7 +40,7 @@ export default {
     methods: {
         voir(event) {
             let val = event.target.getAttribute('data-value');
-            
+
             console.log(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
             fetch(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
                 .then(data => data.json())
