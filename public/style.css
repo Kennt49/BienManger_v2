@@ -7,6 +7,11 @@ body {
     width: 100vw;
 }
 
+input {
+    border: 0;
+    width: 100%;
+}
+
 h1 {
     font-size: 1.2rem;
     margin: 0;
@@ -19,7 +24,7 @@ p {
 }
 
 .back-color {
-    background-color: #E1FEC5;
+    background-image: url(src/assets/backBienManger.jpg);
 }
 
 .backblock-color {
@@ -40,6 +45,10 @@ p {
 
 .bold {
     font-weight: bold;
+}
+
+.text-align-center {
+    text-align: center;
 }
 
 .text-capitalize {
@@ -95,6 +104,14 @@ p {
         "col7 col8";
 }
 
+.gridblock-8col {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "col7 col8";
+}
+
 .gridblock-10col {
     display: grid;
     grid-template-columns: 5fr 2fr 3fr;
@@ -107,12 +124,18 @@ p {
 
 .display {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: start;
 }
 
 .container-fluid {
     display: flex;
     flex-direction: row;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .navbar-brand {
@@ -128,9 +151,7 @@ p {
 }
 
 .btn {
-    padding: 6px 10px 6px 10px;
-    color: transparent;
-    border-color: transparent;
+    border: 0;
 }
 
 .bi-search {
@@ -169,7 +190,6 @@ p {
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
-
 
 .title {
     display: flex;
