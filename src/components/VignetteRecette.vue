@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bold"><br>{{ recette.Name }}</div>
+        <div class="bold" :data-value="recette.id"><br>{{ recette.Name }}</div>
         <div>A servir en {{ saisons[(recette.saison_id) - 1].Name }} comme
             <div class="text-lowercase">{{ plats[(recette.plat_id) - 1].menu}}</div>
         </div>

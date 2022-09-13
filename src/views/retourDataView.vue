@@ -15,7 +15,7 @@
             </div>
         </nav>
         <div v-for="(recette, index) in recettes" :key="index">
-            <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" :data-value="recette.id"
+            <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" 
                 v-on:click="voir" />
         </div>
     </body>
@@ -46,6 +46,7 @@ export default {
     methods: {
         voir(event) {
             let val = event.target.getAttribute('data-value');
+            
             console.log(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
             fetch(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
                 .then(data => data.json())
