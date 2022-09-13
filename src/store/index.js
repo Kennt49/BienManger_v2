@@ -16,7 +16,7 @@ export default createStore({
     },
     ajoutIngred(state, ajout) {
       state.retourData.element.push(ajout);
-    }, 
+    },
     ajoutrecette(state, ajout) {
       state.retourData.recettes.push(ajout);
     }
