@@ -1,5 +1,19 @@
 <template>
-    <body>
+
+    <body class="back">
+        <nav class="navbar opacity sticky-top">
+            <div class="container-fluid navbar-back-color">
+                <a class="navbar-brand" href="#"></a>
+                <div class="gridblock-8col">
+                    <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="">
+                    <h1>Bien-Manger</h1>
+                    <button type="button" class="btn" @click="vers"><i
+                            class="bi bi-arrow-left-circle-fill"></i></button>
+                    <button type="button" class="btn" @click="modify"><i class="bi bi-pencil-fill"></i></button>
+                    <button type="button" class="btn" @click="search"><i class="bi bi-search-heart-fill"></i></button>
+                </div>
+            </div>
+        </nav>
         <div v-for="(recette, index) in recettes" :key="index">
             <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" :data-value="recette.id"
                 v-on:click="voir" />
