@@ -2,12 +2,8 @@
     <div>
 
         <div>
-            <div v-for="(recette, index) in recettes" :key="index" v-on:click="voir">
-                <div :data-value="recette.id"><br>{{ recette.Name }}</div>
-                <div>pour la saison d{{ saisons[(recette.saison_id) - 1].Name }}</div>
-                <div>nombre de convives {{ recette.guest }}</div>
-                <div>{{ recette.description }} </div>
-               
+            <div v-for="(recette, index) in recettes" :key="index">
+                <VignetteRecette :saisons="saisons" :recette="recette" :data-value="recette.id" v-on:click="voir" />
             </div>
 
         </div>
@@ -20,10 +16,13 @@
 
 
 
-
+import VignetteRecette from '@/components/VignetteRecette'
 
 export default {
     name: 'retourDataView',
+    components: {
+        VignetteRecette
+    },
     computed: {
 
         saisons() {
@@ -35,11 +34,8 @@ export default {
 
     },
     created() {
-        fetch(process.env.VUE_APP_CON_URL + "/recipe")
-            .then(data => data.json())
-            .then(data => {
-                this.$store.commit('updateData', data);
-            })
+        this.$store.dispatch('recupRecettes')
+
 
     },
     methods: {
