@@ -11,7 +11,7 @@
         </nav>
         <div>
             <h1>
-                <input :type="text" {{ReadOnly}} class="bold text-align-center text-capitalize"
+                <input :type="text" :readonly="readOnly" class="bold text-align-center text-capitalize"
                     v-model="uneRecette.Name" />
             </h1>
 
@@ -75,15 +75,9 @@ export default {
         plat() {
             return this.$store.state.RecetteUniq?.plat;
         },
-        ReadOnly() {
-            let modif
-            if (this.step == 1) {
-                modif = 'readonly';
-            }
-            else {
-                modif = "";
-            }
-            return modif;
+        readOnly() {
+            let estReadonly = this.step != 1
+            return estReadonly;
         }
 
 
@@ -91,7 +85,7 @@ export default {
     },
     data() {
         return {
-            step: 1,
+            step: 0,
         }
     },
     methods: {
@@ -100,7 +94,7 @@ export default {
         },
         modify() {
 
-            this.step = 0;
+            this.step = 1;
 
         }
     }
