@@ -11,9 +11,10 @@
         </nav>
         <div>
             <h1>
-                <input :readonly=false :type="text" class="bold text-align-center text-capitalize"
+                <input :type="text" :readonly="readOnly" class="bold text-align-center text-capitalize"
                     v-model="uneRecette.Name" />
             </h1>
+
             <div class="gridblock-3col">
                 <div class="backblock-color styleblock-radius">Pour
                     <input readonly class="bold backblock-color text-align-center text-capitalize"
@@ -53,6 +54,8 @@
 
 
 
+
+
 export default {
     name: 'RecetteUniqView',
     computed: {
@@ -72,11 +75,17 @@ export default {
         plat() {
             return this.$store.state.RecetteUniq?.plat;
         },
+        readOnly() {
+            let estReadonly = this.step != 1
+            return estReadonly;
+        }
+
+
 
     },
     data() {
         return {
-            readOnly: "false",
+            step: 0,
         }
     },
     methods: {
@@ -84,11 +93,9 @@ export default {
             this.$router.push("/retourData");
         },
         modify() {
-            document.InputHTMLAttributes.value = false;
 
-            console.log(this.readOnly);
-            this.readOnly = "true"
-            console.log(this.readOnly);
+            this.step = 1;
+
         }
     }
 }
