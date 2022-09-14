@@ -4,7 +4,7 @@
             <a class="navbar-brand" href="#">
                 <div class="display">
                     <div class="div_logo">
-                        <img class="logo_nav" src="../assets/Logo_bien-manger.png" alt="">
+                        <img class="logo_nav" src="../../public/Logo_bien-manger.png" alt="Logo du site">
                     </div>
                 </div>
                 <div class="title">
