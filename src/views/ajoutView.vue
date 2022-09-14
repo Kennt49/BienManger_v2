@@ -11,9 +11,7 @@
             <div id="v-model-select" class=""> A prepare en
                 <select v-model="this.collect.saison_id">
                     <option>Choisissez la saison</option>
-                    <option v-for="(sais, i) of saisons" :key=i :value=sais.id> {{
-                    sais.Name
-                    }}</option>
+                    <option v-for="(sais, i) of saisons" :key=i :value=sais.id> {{sais.Name}}</option>
                 </select>{{ this.collect.saison }}
             </div>
             <div id="v-model-select" class=""> A servir en
