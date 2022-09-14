@@ -24,35 +24,15 @@
             </div>
             <p v-if="step == 0" @click="valid">Valider</p>
 
-            <div v-if="step === 1">
+            <div v-if="step === 0">
                 <legend>etapes de la recette</legend>
                 <div v-for="(etape, index) of etapes" :key="index">
                     <div>{{index+1}}</div><input type="text" v-model="etapes[index].content" /><br />
                 </div>
                 <a @click="create_champ">Ajouter une étape</a>
 
+                <AjoutIngredients :ingredients="ingredients" :transfertId="transfertId"></AjoutIngredients>
 
-                <div>
-                    <legend>liste des ingredients</legend>
-                    <div v-for="(elem, index) of elements" :key="index">
-                        <select v-model="elem.ingredients_id">
-                            <option></option>
-                            <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id> {{ingred.Name}}</option>
-
-                        </select>
-                        <input type="text" v-model="elem.quantity" />
-
-                        <br />
-                    </div>
-                    <a @click="ajoutIngre">Ajouter un ingredient</a>
-                </div>
-                <div>
-                    <h5>Entre un nouvelle ingredient</h5>
-                    <input type="text" v-model="NewIngred.Name" />
-                    <input type="text" v-model="NewIngred.unit" />
-                    <p @click="newIngEnv">propose</p>
-
-                </div>
                 <div>
                     <p @click="valide">Valider</p>
                 </div><br>
@@ -66,10 +46,16 @@
 
 </template>
 <script>
+import  AjoutIngredients  from "../components/AjoutIngredients.vue";
 
 export default {
     name: 'ajoutView',
+    components: {
+        AjoutIngredients
+
+    },
     computed: {
+
         saisons() {
             return this.$store.state.retourData?.saisons;
         },
@@ -98,14 +84,11 @@ export default {
                 plat_id: "",
                 utilisateur_id: 1,
 
-            }
-            ,
+            },
             etapes: [{ number: 1, content: "", recette_id: 0 }],
             phase: { number: 2, content: "", recette_id: 0 },
-            ingre: {  quantity: 0,ingredients_id: 0, recettes_id: 0 },
-            elements: [{ quantity: 0,ingredients_id: 0,  recettes_id: 0 }],
-            NewIngred: { Name: '', unit: '' },
             step: 0,
+            transfertId:0,
         }
 
 
@@ -136,7 +119,7 @@ export default {
                 })
                     .then((data) => data.json());
             }
-           // parcourt le tableau d'objet et envoie les ingredients
+            // parcourt le tableau d'objet et envoie les ingredients
             for (let index = 0; index < this.elements.length; index++) {
                 fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
                     method: "POST",
@@ -151,30 +134,17 @@ export default {
             this.etapes.push({ ...this.phase });
             this.phase.number = this.phase.number + 1;
         },
-        ajoutIngre() {
-            this.elements.push({ ...this.ingre });
-        },
-        newIngEnv() {
-            console.log(this.NewIngred);
-            fetch(process.env.VUE_APP_CON_URL + '/ingredient/add', {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.NewIngred),
-            })
-                .then((data) => data.json())
-                .then(data => (this.$store.commit('ajoutIngred', data)));
 
-        },
+
         miseAJour() {
             let index = this.recettes.length;
-        
             index = index - 1;
             let id = this.recettes[index].id;
             this.etapes[0].recette_id = id;
             this.phase.recette_id = id;
-            this.ingre.recettes_id = id;
-            this.elements[0].recettes_id = id;
-            
+            this.transfertId=id;
+
+
         }
     }
 }
