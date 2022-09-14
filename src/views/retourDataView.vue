@@ -1,67 +1,58 @@
 <template>
-    <div>
-        <div>
-            <p @click="created">idrater</p>
-        </div><br>
 
-        <div>
-            <div v-for="(recette, index) in recettes" :key="index" v-on:click="voir">
-                <div :data-value="recette.id"><br>{{ recette.Name }}</div>
-                <div>pour la saison d{{ saisons[(recette.saison_id) - 1].Name }}</div>
-                <div>nombre de convives {{ recette.guest }}</div>
-                <div>{{ recette.description }} </div>
-                <img src={{image[(recette.id)].url}} />
-            </div>
-
+    <body class="back">
+        <nav class="navbar navbar-brand opacity8 sticky-top container-fluid navbar-back-color gridblock-8col">
+            <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="">
+            <h1>Bien-Manger</h1>
+            <button type="button" class="btn" @click="add"><i class="bi bi-plus-circle-fill"></i></button>
+            <button type="button" class="btn" @click="vers"><i class="bi bi-arrow-left-circle-fill"></i></button>
+            <button type="button" class="btn" @click="modify"><i class="bi bi-pencil-fill"></i></button>
+            <button type="button" class="btn" @click="search"><i class="bi bi-search-heart-fill"></i></button>
+        </nav>
+        <div class="backblock-color styleblock-radius opacity8" v-for="(recette, index) in recettes" :key="index">
+            <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" v-on:click="voir" />
         </div>
-    </div>
-
-
+    </body>
 </template>
+
 <script>
-// <img src=image[(recette.id)].url />//
-
-
-
-
+import VignetteRecette from '@/components/VignetteRecette'
 
 export default {
     name: 'retourDataView',
+    components: {
+        VignetteRecette
+    },
     computed: {
-
         saisons() {
             return this.$store.state.retourData?.saisons;
         },
         recettes() {
             return this.$store.state.retourData?.recettes;
         },
-        image() {
-            return this.$store.state.retourData?.images;
-        }
+        plats() {
+            return this.$store.state.retourData?.plats;
+        },
+    },
+    created() {
+        this.$store.dispatch('recupRecettes')
     },
     methods: {
-        created() {
-            fetch(process.env.VUE_APP_CON_URL + "/recipe")
-                .then(data => data.json())
-                .then(data => {
-                    this.$store.commit('updateData', data);
-                })
-               
-        },
         voir(event) {
             let val = event.target.getAttribute('data-value');
+
+            console.log(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
             fetch(process.env.VUE_APP_CON_URL + "/recipe/show/" + val)
                 .then(data => data.json())
                 .then(data => {
                     this.$store.commit('recepUniq', data);
                 })
             this.$router.push("/recetteUniq");
-
-
         },
     }
 }
 </script>
 
 <style>
+
 </style>

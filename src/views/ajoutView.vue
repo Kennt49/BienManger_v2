@@ -2,11 +2,12 @@
     <div>
         <div>
             <label for="titre">Titre de la recette</label>
-            <input class="titre" type="text" v-model="this.collect.Name" placeholder="couscous" /><br>
+            <input class="text-align-center" type="text" v-model="this.collect.Name" placeholder="couscous" /><br>
             <label for="guest">Nombre de convives</label>
-            <input class="guest" type="text" v-model="this.collect.guest" placeholder="2" /><br>
+            <input class="text-align-center" type="text" v-model="this.collect.guest" placeholder="2" /><br>
             <label for="guest">Description de la recette</label>
-            <input class="guest" type="text" v-model="this.collect.description" /><br>
+            <input class="text-align-center" type="text" v-model="this.collect.description"
+                placeholder="description recette" /><br>
             <div id="v-model-select" class=""> A prepare en
                 <select v-model="this.collect.saison_id">
                     <option>Choisissez la saison</option>
@@ -36,7 +37,7 @@
                 <div>
                     <legend>liste des ingredients</legend>
                     <div v-for="(elem, index) of elements" :key="index">
-                        <select v-model="elem.ingredient_id">
+                        <select v-model="elem.ingredients_id">
                             <option></option>
                             <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id> {{ingred.Name}}</option>
 
@@ -80,6 +81,9 @@ export default {
         plats() {
             return this.$store.state.retourData?.plats;
         },
+        recettes() {
+            return this.$store.state.retourData?.recettes;
+        }
 
     },
 
@@ -100,8 +104,8 @@ export default {
             ,
             etapes: [{ number: 1, content: "", recette_id: 0 }],
             phase: { number: 2, content: "", recette_id: 0 },
-            ingre: { ingredients_id: 0, quantity: 0, recettes_id: 0 },
-            elements: [{ ingredients_id: 0, quantity: 0, recettes_id: 0 }],
+            ingre: {  quantity: 0,ingredients_id: 0, recettes_id: 0 },
+            elements: [{ quantity: 0,ingredients_id: 0,  recettes_id: 0 }],
             NewIngred: { Name: '', unit: '' },
             step: 0,
         }
@@ -113,31 +117,37 @@ export default {
     methods: {
         valid() {//envoie les données vers la BDD de la recette
             this.collect.Slug = this.collect.Name;
-            console.log(this.collect);
             fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(this.collect)
             })
                 .then((data) => data.json())
-                .then(data => (this.$store.commit('ajoutrecette', data)));
+                .then(data => (this.$store.commit('ajoutrecette', data)))
+                .then(this.miseAJour);
             this.step = 1;
-            this.miseAJour();
-        },
-        valide(){//envoie des etapes et ingredient en base non fini a debugger
-            fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.etapes)
-            })
-                .then((data) => data.json());
-                fetch(process.env.VUE_APP_CON_URL + '/ingredient/add', {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.elements)
-            })
-                .then((data) => data.json());
 
+        },
+        valide() {//envoie des etapes et ingredient en base non fini a debugger
+            // parcourt le tableau d'objet et envoie les etapes
+            for (let index = 0; index < this.etapes.length; index++) {
+                fetch(process.env.VUE_APP_CON_URL + '/etape/add', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.etapes[index])
+                })
+                    .then((data) => data.json());
+            }
+           // parcourt le tableau d'objet et envoie les ingredients
+            for (let index = 0; index < this.elements.length; index++) {
+                fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.elements[index])
+                })
+                    .then((data) => data.json());
+            }
+            this.$router.push("/retourData");
         },
         create_champ() {
             this.etapes.push({ ...this.phase });
@@ -158,14 +168,15 @@ export default {
 
         },
         miseAJour() {
-            let index = this.$store.retourData.recettes.length;
+            let index = this.recettes.length;
+        
             index = index - 1;
-            let id = this.$store.retourData.recettes[index].id;
+            let id = this.recettes[index].id;
             this.etapes[0].recette_id = id;
             this.phase.recette_id = id;
-            this.ingre.recette_id = id;
-            this.element[0].recette_id = id;
-            console.log(id);
+            this.ingre.recettes_id = id;
+            this.elements[0].recettes_id = id;
+            
         }
     }
 }

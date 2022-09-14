@@ -1,16 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
 import retourDataView from '@/views/retourDataView'
 import RecetteUniqView from '@/views/RecetteUniqView'
 import ajoutView from '@/views/ajoutView'
 import supprimerView from '@/views/SupprimerView'
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
+
   {
     path: '/retourData',
     name: 'retourData',

@@ -1,79 +1,58 @@
 <template>
 
-    <body class="back-color">
-        <nav class="navbar sticky-top">
-            <div class="container-fluid navbar-back-color">
-                <a class="navbar-brand" href="#">
-                    <div class="display">
-                        <div class="div_logo">
-                            <img class="logo_nav" src="../assets/Logo_bien-manger.png" alt="">
-                        </div>
-                    </div>
-                    <div class="title">
-                        <h1>Bien-Manger</h1>
-                    </div>
-                </a>
-                <div class="display">
-                    <div class="display">
-                        <button type="button"
-                            class="btn display btn-outline-primary navbar-back-color styleblock-radius"
-                            v-on:click="vers"><i class="bi bi-arrow-left-circle-fill"></i></button>
-                    </div>
-                    <div class="display">
-                        <button type="button" class="btn display btn-outline-primary">
-                            <i class="bi bi-search-heart-fill"></i></button>
-                    </div>
-                </div>
-            </div>
+    <body>
+        <nav class="navbar navbar-brand opacity8 sticky-top container-fluid navbar-back-color gridblock-8col">
+            <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="">
+            <h1>Bien-Manger</h1>
+            <button type="button" class="btn" @click="add"><i class="bi bi-plus-circle-fill"></i></button>
+            <button type="button" class="btn" @click="vers"><i class="bi bi-arrow-left-circle-fill"></i></button>
+            <button type="button" class="btn" @click="modify"><i class="bi bi-pencil-fill"></i></button>
+            <button type="button" class="btn" @click="search"><i class="bi bi-search-heart-fill"></i></button>
         </nav>
         <div>
-            <div>
-                <br>
-                <div >
-                    <h1 class="backblock-title-color styleblock-title-radius displayblock-center">
-                        <article class="bold text-capitalize"> {{uneRecette.Name }} </article>
-                    </h1><br>
-                    <div class="gridblock-3col">
-                        <div class="backblock-color styleblock-radius">Pour
-                            <article class="bold text-capitalize"> {{ uneRecette.guest }} </article> personnes
-                        </div>
-                        <div class="backblock-color styleblock-radius">A préparer en
-                            <article class="bold text-capitalize"> {{uneRecette.saison.Name}} </article>
-                        </div>
-                        <div class="backblock-color styleblock-radius">A servir <br> en
-                            <article class="bold text-capitalize"> {{uneRecette.plat.menu}} </article>
-                        </div>
-                    </div>
+            <h1>
+                <input :readonly=false :type="text" class="bold text-align-center text-capitalize"
+                    v-model="uneRecette.Name" />
+            </h1>
+            <div class="gridblock-3col">
+                <div class="backblock-color styleblock-radius">Pour
+                    <input readonly class="bold backblock-color text-align-center text-capitalize"
+                        v-model="uneRecette.guest" />
+                    personnes
                 </div>
-                <br>
-                <div class="gridblock-10col bold text-align-left">
-                    <div>Ingrédients</div>
-                    <div>Qté</div>
-                </div><br>
-                <div class="gridblock-10col text-align-left" v-for="(ingredient, index) in ingredients" :key="index">
-                    <div class="text-capitalize"> {{ingredient.Name }}
-                    </div>
-                    <div>
-                        {{ingredient.ingredients_recettes.quantity }}
-                    </div>
-
-                </div> <br>
-                <div class="bold text-align-left">
-                    Etapes
-                </div> <br>
-                <div class="gridblock-7col text-align-left" v-for="(etape, index) in etapes" :key="index">
-                    <div> {{ etape.number }}
-                    </div>
-                    <ul>
-                        <li>{{ etape.content }}</li>
-                    </ul>
+                <div class="backblock-color styleblock-radius">A préparer en
+                    <input disabled class="bold text-align-center backblock-color text-capitalize"
+                        v-model="uneRecette.saison.Name" />
                 </div>
+                <div class="backblock-color styleblock-radius">A servir <br> en
+                    <input disabled class="bold text-align-center backblock-color text-capitalize"
+                        v-model="uneRecette.plat.menu" />
+                </div>
+            </div>
+            <div class="gridblock-10col bold text-align-left">
+                <div>Ingrédients</div>
+                <div>Qté</div>
+            </div>
+            <div class="gridblock-10col text-align-left" v-for="(ingredient, index) in ingredients" :key="index">
+                <input readonly class="text-capitalize" v-model="ingredient.Name" />
+                <input readonly v-model="ingredient.ingredients_recettes.quantity" />
+            </div>
+            <div class="bold text-align-left">Etapes</div>
+            <div class="gridblock-7col text-align-left" v-for="(etape, index) in etapes" :key="index">
+                <input readonly v-model="etape.number" />
+                <ul>
+                    <li><input v-model="etape.content" /></li>
+                </ul>
             </div>
         </div>
     </body>
 </template>
 
 <script>
+
+
+
+
 export default {
     name: 'RecetteUniqView',
     computed: {
@@ -92,11 +71,24 @@ export default {
         },
         plat() {
             return this.$store.state.RecetteUniq?.plat;
+        },
+
+    },
+    data() {
+        return {
+            readOnly: "false",
         }
     },
     methods: {
         vers() {
             this.$router.push("/retourData");
+        },
+        modify() {
+            document.InputHTMLAttributes.value = false;
+
+            console.log(this.readOnly);
+            this.readOnly = "true"
+            console.log(this.readOnly);
         }
     }
 }
