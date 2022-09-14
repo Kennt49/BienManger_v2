@@ -1,6 +1,11 @@
 <template>
   <nav>
-    <router-link to="/recette">Nouvelle</router-link>|
+    <router-link to="/">bonjour</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/retourData">retour</router-link> |
+    <router-link to="/recetteUniq">recette</router-link> |
+    <router-link to="/recette">Nouvelle</router-link> |
+    <router-link to="/supprimer">Supprimer</router-link>
   </nav>
   <router-view />
 </template>
