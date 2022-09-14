@@ -35,8 +35,8 @@ export default {
         }
     },
     props: {
-    transfertId: { type : Number},
-    ingredients: {
+        transfertId: { type: Number },
+        ingredients: {
             type: Object
         },
     },
@@ -56,6 +56,17 @@ export default {
                 .then(data => (this.$store.commit('ajoutIngred', data)));
 
         },
+        valideIngredients() {
+            // parcourt le tableau d'objet et envoie les ingredients
+            for (let index = 0; index < this.elements.length; index++) {
+                fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.elements[index])
+                })
+                    .then((data) => data.json());
+            }
+        }
 
     }
 }

@@ -31,8 +31,8 @@
                 </div>
                 <a @click="create_champ">Ajouter une étape</a>
 
-                <AjoutIngredients :ingredients="ingredients" :transfertId="transfertId"></AjoutIngredients>
-
+                <AjoutIngredients :ingredients="ingredients" :transfertId="transfertId" ></AjoutIngredients>
+                <AjoutEtape :transfertId="transfertId" ></AjoutEtape>
                 <div>
                     <p @click="valide">Valider</p>
                 </div><br>
@@ -46,12 +46,14 @@
 
 </template>
 <script>
-import  AjoutIngredients  from "../components/AjoutIngredients.vue";
+import AjoutIngredients from "../components/AjoutIngredients.vue";
+import AjoutEtape from '../components/AjoutEtape.vue';
 
 export default {
     name: 'ajoutView',
     components: {
-        AjoutIngredients
+        AjoutIngredients,
+        AjoutEtape
 
     },
     computed: {
@@ -85,11 +87,10 @@ export default {
                 utilisateur_id: 1,
 
             },
-            etapes: [{ number: 1, content: "", recette_id: 0 }],
-            phase: { number: 2, content: "", recette_id: 0 },
+
             step: 0,
-            transfertId:0,
-        }
+            transfertId: 0,
+                  }
 
 
 
@@ -110,41 +111,19 @@ export default {
 
         },
         valide() {//envoie des etapes et ingredient en base non fini a debugger
-            // parcourt le tableau d'objet et envoie les etapes
-            for (let index = 0; index < this.etapes.length; index++) {
-                fetch(process.env.VUE_APP_CON_URL + '/etape/add', {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(this.etapes[index])
-                })
-                    .then((data) => data.json());
-            }
-            // parcourt le tableau d'objet et envoie les ingredients
-            for (let index = 0; index < this.elements.length; index++) {
-                fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(this.elements[index])
-                })
-                    .then((data) => data.json());
-            }
+
+            this.valideEtape();
+            this.validIgredients();
             this.$router.push("/retourData");
         },
-        create_champ() {
-            this.etapes.push({ ...this.phase });
-            this.phase.number = this.phase.number + 1;
-        },
+
 
 
         miseAJour() {
             let index = this.recettes.length;
             index = index - 1;
             let id = this.recettes[index].id;
-            this.etapes[0].recette_id = id;
-            this.phase.recette_id = id;
-            this.transfertId=id;
-
-
+            this.transfertId = id;
         }
     }
 }
