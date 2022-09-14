@@ -2,21 +2,25 @@
 
     <body class="back-img-cover">
         <VignetteNavbar></VignetteNavbar>
-        <div class="backblock-color styleblock-radius opacity8" v-for="(recette, index) in recettes" :key="index">
+        <div class="backblock-color styleblock-radius text-capitalize opacity8" v-for="(recette, index) in recettes"
+            :key="index">
             <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" v-on:click="voir" />
         </div>
+        <VignetteEndBar></VignetteEndBar>
     </body>
 </template>
 
 <script>
 import VignetteRecette from '@/components/VignetteRecette'
 import VignetteNavbar from '@/components/VignetteNavbar'
+import VignetteEndBar from '@/components/VignetteEndBar'
 
 export default {
     name: 'retourDataView',
     components: {
         VignetteRecette,
-        VignetteNavbar
+        VignetteNavbar,
+        VignetteEndBar
     },
     computed: {
         saisons() {
