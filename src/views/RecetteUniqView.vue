@@ -17,7 +17,7 @@
 
             <div class="gridblock-3col">
                 <div class="backblock-color styleblock-radius">Pour
-                    <input readonly class="bold backblock-color text-align-center text-capitalize"
+                    <input :type="text" :readonly="readOnly" class="bold backblock-color text-align-center text-capitalize"
                         v-model="uneRecette.guest" />
                     personnes
                 </div>
@@ -35,12 +35,12 @@
                 <div>Qté</div>
             </div>
             <div class="gridblock-10col text-align-left" v-for="(ingredient, index) in ingredients" :key="index">
-                <input readonly class="text-capitalize" v-model="ingredient.Name" />
-                <input readonly v-model="ingredient.ingredients_recettes.quantity" />
+                <input :type="text" :readonly="readOnly" class="text-capitalize" v-model="ingredient.Name" />
+                <input :type="text" :readonly="readOnly" v-model="ingredient.ingredients_recettes.quantity" />
             </div>
             <div class="bold text-align-left">Etapes</div>
             <div class="gridblock-7col text-align-left" v-for="(etape, index) in etapes" :key="index">
-                <input readonly v-model="etape.number" />
+                <input :type="text" :readonly="readOnly" v-model="etape.number" />
                 <ul>
                     <li><input v-model="etape.content" /></li>
                 </ul>
@@ -75,9 +75,8 @@ export default {
         plat() {
             return this.$store.state.RecetteUniq?.plat;
         },
-        readOnly() {
-            let estReadonly = this.step != 1
-            return estReadonly;
+        readOnly() { 
+            return this.step != 1;
         }
 
 
