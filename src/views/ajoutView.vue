@@ -37,7 +37,7 @@
                 <p @click="valide">Valider</p>
             </div><br>
         </div>
-        </div>
+    </main>
 
 
 
@@ -46,8 +46,8 @@
 </template>
 <script>
 
-import AjoutIngredients from "../components/AjoutIngredients.vue";
-import AjoutEtape from '../components/AjoutEtape.vue';
+import AjoutIngredients from '../components/AjoutIngredients.vue'
+import AjoutEtape from '../components/AjoutEtape.vue'
 
 export default {
     name: 'ajoutView',
