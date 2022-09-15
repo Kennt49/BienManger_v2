@@ -24,7 +24,7 @@
         </div>
         <p v-if="step == 0" @click="valid">Valider</p>
 
-        <div v-if="step === 0">
+        <div v-if="step === 1">
             <legend>etapes de la recette</legend>
             <div v-for="(etape, index) of etapes" :key="index">
                 <div>{{index+1}}</div><input type="text" v-model="etapes[index].content" /><br />
@@ -35,7 +35,7 @@
             <AjoutEtape :transfertId="transfertId"></AjoutEtape>
             <div>
                 <p @click="valide">Valider</p>
-            </div><br>
+            </div>
         </div>
     </main>
 
@@ -47,8 +47,8 @@
 </template>
 <script>
 
-import AjoutIngredients from '../components/AjoutIngredients.vue'
-import AjoutEtape from '../components/AjoutEtape.vue'
+import AjoutIngredients from '@/components/AjoutIngredients.vue';
+import AjoutEtape from '@/components/AjoutEtape.vue';
 
 export default {
     name: 'ajoutView',
