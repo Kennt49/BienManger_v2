@@ -36,8 +36,7 @@
             <div class="gridblock-7col text-align-left" v-for="(etape, index) in etapes" :key="index">
                 <input :type="text" :readonly="readOnly" class="back-hidden" v-model="etape.number" />
                 <ul>
-                    <li><textarea oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-                            class="back-hidden" v-model="etape.content" />
+                    <li><textarea :readonly="readOnly" class="back-hidden" v-model="etape.content" />
                     </li>
                 </ul>
             </div>
