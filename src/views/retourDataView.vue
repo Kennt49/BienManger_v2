@@ -2,9 +2,11 @@
 
     <body class="back-img-cover">
         <VignetteNavbar></VignetteNavbar>
-        <div class="backblock-color styleblock-radius text-capitalize opacity8" v-for="(recette, index) in recettes"
-            :key="index">
-            <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" v-on:click="voir" />
+        <div class="gridblock">
+            <div class="backblock-color styleblock-radius text-capitalize opacity8" v-for="(recette, index) in recettes"
+                :key="index">
+                <VignetteRecette :saisons="saisons" :plats="plats" :recette="recette" v-on:click="voir" />
+            </div>
         </div>
         <VignetteEndBar></VignetteEndBar>
     </body>

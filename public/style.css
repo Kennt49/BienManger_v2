@@ -17,6 +17,11 @@ input {
     background-image: url(backBienManger.jpg);
     background-size: cover;
     background-repeat: no repeat;
+    background-position: center;
+}
+
+.back-hidden {
+    background-color: transparent;
 }
 
 .margin-left-right {
@@ -26,10 +31,6 @@ input {
 
 .opacity8 {
     opacity: 0.8;
-}
-
-.opacity0 {
-    opacity: 0;
 }
 
 .backblock-color {
@@ -81,20 +82,19 @@ input {
     justify-content: center;
 }
 
+.flexwrap-center {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .gridblock-3col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "col1 col2 col3";
 }
 
 .gridblock-7col {
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "col7 col8";
 }
 
 .gridblock-8col {
@@ -107,86 +107,9 @@ input {
 .gridblock-10col {
     display: grid;
     grid-template-columns: 5fr 2fr 3fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "col4 col5 col6";
 }
 
-/*Css class for navbar (bootstrap)*/
-
-.display {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-}
-
-.container-fluid {
-    display: flex;
-    flex-direction: row;
-}
-
-.navbar {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.navbar-brand {
-    display: flex;
-    margin-right: 0.5em;
-}
-
-.navbar.bg-light {
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
-
-.btn {
-    border: 0;
-}
-
-.bi-search {
-    color: black;
-    font-size: 95%;
-}
-
-.bi-arrow-left-circle-fill {
-    color: black;
-    font-size: 95%;
-}
-
-.bi-trash-fill {
-    color: black;
-    font-size: 95%;
-}
-
-.bi-pen-fill {
-    color: black;
-    font-size: 95%;
-}
-
-.bi-plus {
-    color: black;
-    font-size: 85%;
-}
-
-.button_plus {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 9vw;
-    height: 2vh;
-    background-color: grey;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-
-.title {
-    display: flex;
-    justify-content: center;
-}
+/*Css class for logo*/
 
 .logo_nav {
     width: 100%;
@@ -201,28 +124,7 @@ input {
     justify-content: center;
 }
 
-.mention_legales {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background-color: rgb(41, 41, 41);
-}
-
-.texte_mention {
-    color: white;
-}
-
 @media screen and (min-width: 540px) {
-
-    h1 {
-        font-size: 1.6rem;
-    }
-
-    .title {
-        position: absolute;
-        top: 0.5em;
-        width: 100%
-    }
 
     .div_logo {
         display: flex;
@@ -231,25 +133,9 @@ input {
         margin-left: 17px;
         justify-content: center;
     }
-
 }
 
 @media screen and (min-width: 1024px) {
-
-    .btn {
-        padding: 10px 14px 10px 14px;
-    }
-
-    .navbar.bg-light {
-        height: 12vh;
-        display: flex;
-        justify-content: center;
-        padding: 0px;
-    }
-
-    .title {
-        top: 1em;
-    }
 
     .div_logo {
         width: 6vw;
@@ -257,11 +143,10 @@ input {
         margin-left: 17px;
     }
 
-    .btn {
-        width: 7vw;
-        padding: 6px 10px 6px 10px;
-        color: transparent;
-        border-color: transparent;
+    .gridblock {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
     }
 }
 

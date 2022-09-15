@@ -22,7 +22,7 @@
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item"><a class="nav-link" @click="add">Ajouter une recette</a></li>
                     <li class="nav-item"><a class="nav-link" @click="vers">Retour</a></li>
-                    <li class="nav-item"><a class="nav-link" @click="modify">Modifier une recette</a></li>
+                    <li class="nav-item"><a class="nav-link" @click="modify">Modifier la recette</a></li>
                 </ul>
             </div>
         </div>
@@ -30,12 +30,21 @@
 </template>
 
 <script>
+
 export default {
     name: 'VignetteNavbar',
     props: {
         navbar: {
             type: Object
         },
+    },
+    methods: {
+        vers() {
+            this.$router.push("/retourData");
+        },
+        modify() {
+            this.step = 1;
+        }
     }
 }
 </script>
