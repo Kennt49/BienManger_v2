@@ -25,7 +25,8 @@
                 <div>Ingrédients</div>
                 <div>Qté</div>
             </div>
-            <div class="gridblock-10col text-align-left" v-for="(ingredient, index) in ingredients" :key="index">
+
+            <div  v-for="(ingredient, index) in ingredients" class= "gridblock-10col text-align-left" :key="index">
                 <input :type="text" :readonly="readOnly" class="text-capitalize back-hidden"
                     v-model="ingredient.Name" />
                 <input :type="text" :readonly="readOnly" class="back-hidden"
@@ -40,6 +41,7 @@
                     </li>
                 </ul>
             </div>
+            
         </div>
     </main>
 </template>
