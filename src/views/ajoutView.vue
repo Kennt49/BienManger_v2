@@ -25,24 +25,16 @@
         <p v-if="step == 0" @click="valid">Valider</p>
 
         <div v-if="step === 1">
-            <legend>etapes de la recette</legend>
-            <div v-for="(etape, index) of etapes" :key="index">
-                <div>{{index+1}}</div><input type="text" v-model="etapes[index].content" /><br />
-            </div>
-            <a @click="create_champ">Ajouter une étape</a>
 
-            <AjoutIngredients :ingredients="ingredients" :transfertId="transfertId"></AjoutIngredients>
-            <AjoutEtape :transfertId="transfertId"></AjoutEtape>
+            <AjoutIngredients ref="ajoutIngredients" :ingredients="ingredients" :IdRecette="IdRecette">
+            </AjoutIngredients>
+            <AjoutEtape ref="ajoutEtape" :IdRecette="IdRecette"></AjoutEtape>
             <div>
+
                 <p @click="valide">Valider</p>
             </div>
         </div>
     </main>
-
-
-
-
-
 
 </template>
 <script>
@@ -74,7 +66,6 @@ export default {
 
     },
 
-
     data() {
         return {
             collect:
@@ -90,7 +81,7 @@ export default {
             },
 
             step: 0,
-            transfertId: 0,
+            IdRecette: 0,
         }
 
 
@@ -109,22 +100,21 @@ export default {
                 .then(data => (this.$store.commit('ajoutrecette', data)))
                 .then(this.miseAJour);
             this.step = 1;
+            this.$refs.ajoutEtape.MiseAJourEtape();
 
         },
         valide() {//envoie des etapes et ingredient en base non fini a debugger
 
-            this.valideEtape();
-            this.validIgredients();
+            this.$refs.ajoutEtape.valideEtape();
+            this.$refs.ajoutIngredients.valideIngredients();
             this.$router.push("/retourData");
         },
-
-
-
         miseAJour() {
             let index = this.recettes.length;
             index = index - 1;
             let id = this.recettes[index].id;
-            this.transfertId = id;
+            this.IdRecette = id;
+            console.log(id);
         }
     }
 }

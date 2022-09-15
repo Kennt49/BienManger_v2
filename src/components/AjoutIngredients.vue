@@ -30,14 +30,22 @@ export default {
                 Name: '',
                 unit: ''
             },
-            ingre: { quantity: 0, ingredients_id: 0, recettes_id: this.transfertId },
-            elements: [{ quantity: 0, ingredients_id: 0, recettes_id: this.transfertId }],
+            ingre: { quantity: 0,
+                 ingredients_id: 0,
+                  recettes_id: this.IdRecette },
+            elements: [{ quantity: 0,
+                 ingredients_id: 0,
+                  recettes_id: this.IdRecette }],
         }
     },
+
+
     props: {
-        transfertId: { type: Number },
         ingredients: {
             type: Object
+        },
+        IdRecette:{
+            type: Number
         },
     },
 
@@ -56,8 +64,8 @@ export default {
                 .then(data => (this.$store.commit('ajoutIngred', data)));
 
         },
-        
-        valideIngredients(){
+
+        valideIngredients() {
             // parcourt le tableau d'objet et envoie les ingredients
             for (let index = 0; index < this.elements.length; index++) {
                 fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
@@ -69,6 +77,6 @@ export default {
             }
         }
     }
-    
+
 }
 </script>
