@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-dark bg-dark sticky-top container-fluid">
-        <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="" />
-        <a class="navbar-brand">Bien-Manger</a>
+        <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="" @click="vers" />
+        <a class="navbar-brand" @click="vers">Bien-Manger</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
