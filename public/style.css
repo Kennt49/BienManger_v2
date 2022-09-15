@@ -114,7 +114,7 @@ input {
     grid-template-columns: 5fr 2fr 3fr;
 }
 
-<<<<<<< HEAD
+
 /*Css class for navbar (bootstrap)*/
 
 .display {
@@ -201,10 +201,9 @@ input {
     justify-content: center;
 }
 
-=======
 
 /*Css class for logo*/
->>>>>>>f7890e974632d843dd47b3142df6063055f356ec .logo_nav {
+.logo_nav {
     width: 100%;
     height: 100%;
 }
@@ -217,7 +216,7 @@ input {
     justify-content: center;
 }
 
-<<<<<<< HEAD
+
 
 /*barre mention légales*/
 .mention_legales {
@@ -258,7 +257,7 @@ input {
     margin: 0px;
 }
 
-=======>>>>>>>f7890e974632d843dd47b3142df6063055f356ec @media screen and (min-width: 540px) {
+@media screen and (min-width: 540px) {
 
     .div_logo {
         display: flex;
