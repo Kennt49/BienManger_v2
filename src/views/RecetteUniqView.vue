@@ -82,4 +82,8 @@ export default {
 textarea {
     border: 0
 }
+
+input {
+    width: 100%;
+}
 </style>
