@@ -1,12 +1,19 @@
 <template>
-  <nav>
-
-    <router-link to="/supprimer">Supprimer</router-link>
-  </nav>
-  <router-view />
+  <VignetteNavbar></VignetteNavbar>
+  <router-view class="back-img-cover" />
+  <VignetteEndBar />
 </template>
 <script>
+import VignetteNavbar from '@/components/VignetteNavbar'
+import VignetteEndBar from '@/components/VignetteEndBar'
 
+export default {
+  name: 'App',
+  components: {
+    VignetteNavbar,
+    VignetteEndBar
+  }
+}
 
 </script>
 

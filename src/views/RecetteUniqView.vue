@@ -1,7 +1,6 @@
 <template>
 
-    <body class="back-img-cover">
-        <VignetteNavbar></VignetteNavbar>
+    <main class="back-img-cover">
         <div>
             <h1>
                 <textarea :readonly="readOnly" class="bold back-hidden text-align-center text-capitalize"
@@ -41,19 +40,14 @@
                 </ul>
             </div>
         </div>
-        <VignetteEndBar></VignetteEndBar>
-    </body>
+    </main>
 </template>
 
 <script>
-import VignetteNavbar from '@/components/VignetteNavbar'
-import VignetteEndBar from '@/components/VignetteEndBar'
 
 export default {
     name: 'RecetteUniqView',
     components: {
-        VignetteNavbar,
-        VignetteEndBar
     },
     computed: {
         etapes() {

@@ -1,8 +1,6 @@
 <template>
 
-    <body class="back">
-
-        <VignetteNavbar />
+    <main class="back">
 
         <div class="recette-supr">
             <div class="tab-recette">
@@ -27,15 +25,13 @@
                 <button type="button" class="">Oui, je suis sûr</button>
             </div>
         </div>
-    </body>
+    </main>
 </template>
 
 <script>
-import VignetteNavbar from "@/components/VignetteNavbar"
 export default {
     name: 'suprimerView',
     components: {
-        VignetteNavbar
     }
 }
 </script>

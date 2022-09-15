@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-dark bg-dark fixed-top container-fluid">
+    <nav class="navbar navbar-dark bg-dark sticky-top container-fluid">
         <img class="logo_nav div_logo" src="/Logo_bien-manger.png" alt="" />
         <a class="navbar-brand">Bien-Manger</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
@@ -23,6 +23,7 @@
                     <li class="nav-item"><a class="nav-link" @click="add">Ajouter une recette</a></li>
                     <li class="nav-item"><a class="nav-link" @click="vers">Retour</a></li>
                     <li class="nav-item"><a class="nav-link" @click="modify">Modifier la recette</a></li>
+                    <li class="nav-item"><a class="nav-link" @click="erase">Supprimer la recette</a></li>
                 </ul>
             </div>
         </div>
@@ -47,6 +48,9 @@ export default {
         },
         add() {
             this.$router.push("/recette");
+        },
+        erase() {
+            this.$router.push("/supprimer");
         }
     }
 }
