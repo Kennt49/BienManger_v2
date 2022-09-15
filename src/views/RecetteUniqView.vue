@@ -1,9 +1,9 @@
 <template>
 
-    <main class="back-img-cover">
+    <main>
         <div>
             <h1>
-                <textarea :readonly="readOnly" class="bold back-hidden text-align-center text-capitalize"
+                <textarea :readonly="readOnly" class="bold margin-top back-hidden text-align-center text-capitalize"
                     v-model="uneRecette.Name" />
             </h1>
             <div class="gridblock-3col">
@@ -21,7 +21,7 @@
                         v-model="uneRecette.plat.menu" />
                 </div>
             </div>
-            <div class="gridblock-10col bold text-align-left">
+            <div class="gridblock-10col bold text-align-left margin-top">
                 <div>Ingrédients</div>
                 <div>Qté</div>
             </div>
@@ -31,8 +31,9 @@
                 <input :type="text" :readonly="readOnly" class="back-hidden"
                     v-model="ingredient.ingredients_recettes.quantity" />
             </div>
-            <div class="bold text-align-left">Etapes</div>
-            <div class="gridblock-7col text-align-left" v-for="(etape, index) in etapes" :key="index">
+            <div class="bold text-align-left margin-top">Etapes</div>
+            <div class="gridblock-7col text-align-left backblock-color opacity8 styleblock-radius"
+                v-for="(etape, index) in etapes" :key="index">
                 <input :type="text" :readonly="readOnly" class="back-hidden" v-model="etape.number" />
                 <ul>
                     <li><textarea :readonly="readOnly" class="back-hidden" v-model="etape.content" />
