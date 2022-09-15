@@ -1,46 +1,52 @@
 <template>
-    <div>
+
+    <main>
         <div>
             <label for="titre">Titre de la recette</label>
-            <input class="text-align-center" type="text" v-model="this.collect.Name" placeholder="couscous" /><br>
+            <input class="text-align-center margin" type="text" v-model="this.collect.Name" placeholder="couscous" />
+        </div>
+        <div>
             <label for="guest">Nombre de convives</label>
-            <input class="text-align-center" type="text" v-model="this.collect.guest" placeholder="2" /><br>
-            <label for="guest">Description de la recette</label>
-            <input class="text-align-center" type="text" v-model="this.collect.description"
-                placeholder="description recette" /><br>
-            <div id="v-model-select" class=""> A prepare en
-                <select v-model="this.collect.saison_id">
-                    <option>Choisissez la saison</option>
-                    <option v-for="(sais, i) of saisons" :key=i :value=sais.id> {{sais.Name}}</option>
-                </select>{{ this.collect.saison }}
-            </div>
-            <div id="v-model-select" class=""> A servir en
-                <select v-model="this.collect.plat_id">
-                    <option disabled value="">Choisissez le type de plat</option>
-                    <option v-for="(plat ,i ) of plats" :key=i :value=plat.id>
-                        {{ plat.menu }}
-                    </option>
-                </select>
-            </div>
-            <p v-if="step == 0" @click="valid">Valider</p>
-
-            <div v-if="step === 0">
-                <legend>etapes de la recette</legend>
-                <div v-for="(etape, index) of etapes" :key="index">
-                    <div>{{index+1}}</div><input type="text" v-model="etapes[index].content" /><br />
-                </div>
-                <a @click="create_champ">Ajouter une étape</a>
-
-                <AjoutIngredients :ingredients="ingredients" :transfertId="transfertId" ></AjoutIngredients>
-                <AjoutEtape :transfertId="transfertId" ></AjoutEtape>
-                <div>
-                    <p @click="valide">Valider</p>
-                </div><br>
-            </div>
+        <input class="text-align-center" type="text" v-model="this.collect.guest" placeholder="2" />
         </div>
 
+        
+        <label for="guest">Description de la recette</label>
+        <input class="text-align-center" type="text" v-model="this.collect.description"
+            placeholder="description recette" /><br>
+        <div id="v-model-select" class=""> A prepare en
+            <select v-model="this.collect.saison_id">
+                <option>Choisissez la saison</option>
+                <option v-for="(sais, i) of saisons" :key=i :value=sais.id> {{sais.Name}}</option>
+            </select>{{ this.collect.saison }}
+        </div>
+        <div id="v-model-select" class=""> A servir en
+            <select v-model="this.collect.plat_id">
+                <option disabled value="">Choisissez le type de plat</option>
+                <option v-for="(plat ,i ) of plats" :key=i :value=plat.id>
+                    {{ plat.menu }}
+                </option>
+            </select>
+        </div>
+        <p v-if="step == 0" @click="valid">Valider</p>
 
-    </div>
+        <div v-if="step === 0">
+            <legend>etapes de la recette</legend>
+            <div v-for="(etape, index) of etapes" :key="index">
+                <div>{{index+1}}</div><input type="text" v-model="etapes[index].content" /><br />
+            </div>
+            <a @click="create_champ">Ajouter une étape</a>
+
+            <AjoutIngredients :ingredients="ingredients" :transfertId="transfertId"></AjoutIngredients>
+            <AjoutEtape :transfertId="transfertId"></AjoutEtape>
+            <div>
+                <p @click="valide">Valider</p>
+            </div><br>
+        </div>
+    </main>
+
+
+
 
 
 
@@ -90,7 +96,7 @@ export default {
 
             step: 0,
             transfertId: 0,
-                  }
+        }
 
 
 

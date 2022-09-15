@@ -51,7 +51,7 @@ export default {
         },
         erase() {
             this.$router.push("/supprimer");
-        }
+        },
     }
 }
 </script>
