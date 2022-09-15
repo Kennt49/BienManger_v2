@@ -31,12 +31,12 @@ export default {
                 unit: ''
             },
             ingre: {
-                quantity: 0,
+                quantity: "",
                 ingredients_id: 0,
                 recettes_id: this.IdRecette
             },
             elements: [{
-                quantity: 0,
+                quantity: "",
                 ingredients_id: 0,
                 recettes_id: this.IdRecette
             }],

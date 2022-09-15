@@ -114,7 +114,7 @@ export default {
             index = index - 1;
             let id = this.recettes[index].id;
             this.IdRecette = id;
-            console.log(id);
+            
         }
     }
 }
