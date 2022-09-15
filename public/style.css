@@ -18,6 +18,11 @@ input {
     background-image: url(backBienManger.jpg);
     background-size: cover;
     background-repeat: no repeat;
+    background-position: center;
+}
+
+.back-hidden {
+    background-color: transparent;
 }
 
 .margin-left-right {
@@ -27,10 +32,6 @@ input {
 
 .opacity8 {
     opacity: 0.8;
-}
-
-.opacity0 {
-    opacity: 0;
 }
 
 .backblock-color {
@@ -72,8 +73,12 @@ input {
 
 .styleblock-radius {
     height: auto;
-    margin: 5%;
+    margin: 0 5% 5% 5%;
     border-radius: 5%;
+}
+
+.margin {
+    margin: 5% 25% 5% 25%;
 }
 
 .displayblock-center {
@@ -82,20 +87,19 @@ input {
     justify-content: center;
 }
 
+.flexwrap-center {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .gridblock-3col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "col1 col2 col3";
 }
 
 .gridblock-7col {
     display: grid;
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "col7 col8";
 }
 
 .gridblock-8col {
@@ -108,11 +112,9 @@ input {
 .gridblock-10col {
     display: grid;
     grid-template-columns: 5fr 2fr 3fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "col4 col5 col6";
 }
 
+<<<<<<< HEAD
 /*Css class for navbar (bootstrap)*/
 
 .display {
@@ -199,7 +201,10 @@ input {
     justify-content: center;
 }
 
-.logo_nav {
+=======
+
+/*Css class for logo*/
+>>>>>>>f7890e974632d843dd47b3142df6063055f356ec .logo_nav {
     width: 100%;
     height: 100%;
 }
@@ -211,6 +216,8 @@ input {
     margin-left: 17px;
     justify-content: center;
 }
+
+<<<<<<< HEAD
 
 /*barre mention légales*/
 .mention_legales {
@@ -251,17 +258,7 @@ input {
     margin: 0px;
 }
 
-@media screen and (min-width: 540px) {
-
-    h1 {
-        font-size: 1.6rem;
-    }
-
-    .title {
-        position: absolute;
-        top: 0.5em;
-        width: 100%
-    }
+=======>>>>>>>f7890e974632d843dd47b3142df6063055f356ec @media screen and (min-width: 540px) {
 
     .div_logo {
         display: flex;
@@ -270,25 +267,9 @@ input {
         margin-left: 17px;
         justify-content: center;
     }
-
 }
 
 @media screen and (min-width: 1024px) {
-
-    .btn {
-        padding: 10px 14px 10px 14px;
-    }
-
-    .navbar.bg-light {
-        height: 12vh;
-        display: flex;
-        justify-content: center;
-        padding: 0px;
-    }
-
-    .title {
-        top: 1em;
-    }
 
     .div_logo {
         width: 6vw;
