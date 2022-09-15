@@ -6,6 +6,7 @@
 body {
     width: 100vw;
 
+
 }
 
 input {
@@ -113,8 +114,95 @@ input {
     grid-template-columns: 5fr 2fr 3fr;
 }
 
-/*Css class for logo*/
 
+/*Css class for navbar (bootstrap)*/
+
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-brand {
+    display: flex;
+    margin-right: 0.5em;
+}
+
+.navbar.bg-light {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.btn {
+    border: 0;
+}
+
+.bi-search {
+    color: black;
+    font-size: 95%;
+}
+
+.bi-caret-left {
+    color: black;
+    font-size: 95%;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+.bt-confirmation-supr {
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: beige;
+}
+
+.bi-trash-fill {
+    color: black;
+    font-size: 95%;
+}
+
+.bi-pen-fill {
+    color: black;
+    font-size: 95%;
+}
+
+.bi-plus {
+    color: black;
+    font-size: 85%;
+}
+
+.button_plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 2vh;
+    background-color: grey;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*Css class for logo*/
 .logo_nav {
     width: 100%;
     height: 100%;
@@ -126,6 +214,47 @@ input {
     height: 10vh;
     margin-left: 17px;
     justify-content: center;
+}
+
+
+
+/*barre mention légales*/
+.mention_legales {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(41, 41, 41);
+}
+
+.texte_mention {
+    color: white;
+}
+
+.box-choix-supr {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.text-choix-supr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: medium;
+}
+
+.champs-choix-supr {
+    width: 84%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
 }
 
 @media screen and (min-width: 540px) {
@@ -147,11 +276,19 @@ input {
         margin-left: 17px;
     }
 
-    .gridblock {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: auto auto;
-        padding: 1em;
+    .btn {
+        width: 7vw;
+        padding: 6px 10px 6px 10px;
+        color: transparent;
+        border-color: transparent;
+    }
+
+    .bi-caret-left {
+        color: black;
+        font-size: 95%;
+        border-radius: 5px;
+        background-color: beige;
+        width: 26px;
     }
 }
 
@@ -178,6 +315,7 @@ input {
     border-style: solid;
     border-color: rgb(73, 73, 73);
     border-radius: 7px 7px 0px 0px;
+    background-color: #A0C6A9;
 }
 
 .nom-recette-supr {
@@ -191,7 +329,7 @@ input {
     height: 280px;
     display: flex;
     justify-content: center;
-    margin: 18px 0px 18px 0px;
+    margin: 5px 0px 18px 0px;
 }
 
 .tab-recette {
@@ -218,7 +356,9 @@ input {
     border-style: solid;
     border-color: rgb(73, 73, 73);
     border-radius: 0px 0px 7px 7px;
+
 }
+
 
 @media screen and (min-width: 540px) {
 
