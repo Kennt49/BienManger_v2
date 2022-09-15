@@ -26,8 +26,10 @@ export default {
     },
     props: {
         IdRecette: { type: Number },
+        parametreFonction: { type: String },
     },
     created() {
+       
 
     },
 
@@ -37,15 +39,9 @@ export default {
             this.phase.number = this.phase.number + 1;
             
         },
-        MiseAJourEtape() {
-            console.log(this.etapes[0].recette_id);
-            this.etapes[0].recette_id = this.IdRecette;
-          
-        },
-
-        valideEtape() {            // parcourt le tableau d'objet et envoie les etapes
+         valideEtape() {            // parcourt le tableau d'objet et envoie les etapes
             for (let index = 0; index < this.etapes.length; index++) {
-                fetch(process.env.VUE_APP_CON_URL + '/etape/add', {
+                fetch(process.env.VUE_APP_CON_URL + '/etape/'+this.parametreFonction, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(this.etapes[index])

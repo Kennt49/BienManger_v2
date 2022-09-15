@@ -42,17 +42,17 @@ export default {
             }],
         }
     },
-    created() {
-
-    },
-
-
     props: {
         ingredients: {
             type: Object
         },
         IdRecette: {
             type: Number
+        },
+        parametreFonction: {
+            type: String
+        },
+        created() {
         },
     },
 
@@ -62,6 +62,7 @@ export default {
         },
         newIngEnv() {
             console.log(this.NewIngred);
+            console.log(this.parametreFonction);
             fetch(process.env.VUE_APP_CON_URL + '/ingredient/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -75,7 +76,7 @@ export default {
         valideIngredients() {
             // parcourt le tableau d'objet et envoie les ingredients
             for (let index = 0; index < this.elements.length; index++) {
-                fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/add', {
+                fetch(process.env.VUE_APP_CON_URL + '/ingredient_recette/' + this.parametreFonction, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(this.elements[index])

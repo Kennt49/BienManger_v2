@@ -27,11 +27,12 @@
         </div>
         <p v-if="step == 0" @click="validRecette">Valider</p>
 
-        <div v-if="step === 1">
+        <div v-if="step === 0">
 
-            <AjoutIngredients ref="ajoutIngredients" :ingredients="ingredients" :IdRecette="IdRecette">
+            <AjoutIngredients ref="ajoutIngredients" :parametreFonction="parametreFonction" :ingredients="ingredients"
+                :IdRecette="IdRecette">
             </AjoutIngredients>
-            <AjoutEtape ref="ajoutEtape" :IdRecette="IdRecette"></AjoutEtape>
+            <AjoutEtape ref="ajoutEtape" :parametreFonction="parametreFonction" :IdRecette="IdRecette"></AjoutEtape>
             <div>
 
                 <p @click="validIngredientEtape">Valider</p>
@@ -44,6 +45,7 @@
 
 import AjoutIngredients from '@/components/AjoutIngredients.vue';
 import AjoutEtape from '@/components/AjoutEtape.vue';
+const parametreFonction = "add";
 
 export default {
     name: 'ajoutView',
@@ -85,6 +87,7 @@ export default {
 
             step: 0,
             IdRecette: 0,
+            parametreFonction,
         }
 
 
