@@ -1,6 +1,6 @@
 <template>
 
-    <main class="back-img-cover">
+    <main>
         <div>
             <h1>
                 <textarea :readonly="readOnly" class="bold back-hidden text-align-center text-capitalize"
