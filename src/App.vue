@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/recette">Nouvelle</router-link> |
+
     <router-link to="/supprimer">Supprimer</router-link>
   </nav>
   <router-view />

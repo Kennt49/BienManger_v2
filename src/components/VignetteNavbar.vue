@@ -46,7 +46,7 @@ export default {
             this.step = 1;
         },
         add() {
-            this.$router.push("/ajoutView");
+            this.$router.push("/recette");
         }
     }
 }
