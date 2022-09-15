@@ -1,8 +1,11 @@
 <template>
 
     <main>
-        <label for="titre">Titre de la recette</label>
-        <input class="text-align-center margin" type="text" v-model="this.collect.Name" placeholder="couscous" /><br>
+        <div>
+            <label for="titre">Titre de la recette</label>
+            <input class="text-align-center margin" type="text" v-model="this.collect.Name"
+                placeholder="couscous" /><br>
+        </div>
         <label for="guest">Nombre de convives</label>
         <input class="text-align-center" type="text" v-model="this.collect.guest" placeholder="2" /><br>
         <label for="guest">Description de la recette</label>
@@ -114,7 +117,7 @@ export default {
             index = index - 1;
             let id = this.recettes[index].id;
             this.IdRecette = id;
-            
+
         }
     }
 }
