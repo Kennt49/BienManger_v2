@@ -20,10 +20,13 @@
             </form>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item"><a class="nav-link" @click="add">Ajouter une recette</a></li>
-                    <li class="nav-item"><a class="nav-link" @click="vers">Retour</a></li>
-                    <li class="nav-item"><a class="nav-link" @click="modify">Modifier la recette</a></li>
-                    <li class="nav-item"><a class="nav-link" @click="erase">Supprimer la recette</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="add">Ajouter une
+                            recette</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="vers">Retour</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="modify">Modifier la
+                            recette</a></li>
+                    <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="erase">Supprimer la
+                            recette</a></li>
                 </ul>
             </div>
         </div>
@@ -54,4 +57,5 @@ export default {
         },
     }
 }
+
 </script>
