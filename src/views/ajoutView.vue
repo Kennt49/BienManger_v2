@@ -22,7 +22,7 @@
                 </option>
             </select>
         </div>
-        <p v-if="step == 0" @click="valid">Valider</p>
+        <p v-if="step == 0" @click="validRecette">Valider</p>
 
         <div v-if="step === 1">
 
@@ -31,7 +31,7 @@
             <AjoutEtape ref="ajoutEtape" :IdRecette="IdRecette"></AjoutEtape>
             <div>
 
-                <p @click="valide">Valider</p>
+                <p @click="validIngredientEtape">Valider</p>
             </div>
         </div>
     </main>
@@ -89,7 +89,7 @@ export default {
     },
 
     methods: {
-        valid() {//envoie les données vers la BDD de la recette
+        validRecette() {//envoie les données vers la BDD de la recette
             this.collect.Slug = this.collect.Name;
             fetch(process.env.VUE_APP_CON_URL + '/recipe/add', {
                 method: "POST",
@@ -98,12 +98,12 @@ export default {
             })
                 .then((data) => data.json())
                 .then(data => (this.$store.commit('ajoutrecette', data)))
-                .then(this.miseAJour);
-            this.step = 1;
-            this.$refs.ajoutEtape.MiseAJourEtape();
+                .then(this.miseAJour)
+                .then(setTimeout(() => this.step = 1, 200));
+            //FIXME: le delay est prevu pour permettre la mise a jour de la props
 
         },
-        valide() {//envoie des etapes et ingredient en base non fini a debugger
+        validIngredientEtape() {//envoie des etapes et ingredient en base non fini a debugger
 
             this.$refs.ajoutEtape.valideEtape();
             this.$refs.ajoutIngredients.valideIngredients();

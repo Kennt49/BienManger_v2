@@ -30,13 +30,20 @@ export default {
                 Name: '',
                 unit: ''
             },
-            ingre: { quantity: 0,
-                 ingredients_id: 0,
-                  recettes_id: this.IdRecette },
-            elements: [{ quantity: 0,
-                 ingredients_id: 0,
-                  recettes_id: this.IdRecette }],
+            ingre: {
+                quantity: 0,
+                ingredients_id: 0,
+                recettes_id: this.IdRecette
+            },
+            elements: [{
+                quantity: 0,
+                ingredients_id: 0,
+                recettes_id: this.IdRecette
+            }],
         }
+    },
+    created() {
+
     },
 
 
@@ -44,7 +51,7 @@ export default {
         ingredients: {
             type: Object
         },
-        IdRecette:{
+        IdRecette: {
             type: Number
         },
     },

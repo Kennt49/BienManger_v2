@@ -28,17 +28,19 @@ export default {
         IdRecette: { type: Number },
     },
     created() {
+
     },
 
     methods: {
         create_champ() {
             this.etapes.push({ ...this.phase });
             this.phase.number = this.phase.number + 1;
-            console.log(this.etapes[0].recette_id);
+            
         },
         MiseAJourEtape() {
-            this.etapes[0].recette_id = this.IdRecette;
             console.log(this.etapes[0].recette_id);
+            this.etapes[0].recette_id = this.IdRecette;
+          
         },
 
         valideEtape() {            // parcourt le tableau d'objet et envoie les etapes
