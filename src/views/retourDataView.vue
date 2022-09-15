@@ -13,7 +13,7 @@
 import VignetteRecette from '@/components/VignetteRecette'
 
 export default {
-    name: 'retourDataView',
+    name: 'recetteView',
     components: {
         VignetteRecette,
     },

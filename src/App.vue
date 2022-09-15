@@ -12,6 +12,9 @@ export default {
   components: {
     VignetteNavbar,
     VignetteEndBar
+  },
+  created() {
+    this.$router.push('/retourData');
   }
 }
 
