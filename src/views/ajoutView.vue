@@ -30,7 +30,7 @@
         </div>
         <p class=" btn btn-secondary opacity8 little-margin-top" v-if="step == 0" @click="validRecette">Passer à la
             seconde étape</p>
-        <div class="btn btn-secondary" v-if="step === 1">
+        <div class="btn btn-secondary" v-if="step === 0">
             <AjoutIngredients ref="ajoutIngredients" :parametreFonction="parametreFonction" :ingredients="ingredients"
                 :IdRecette="IdRecette">
             </AjoutIngredients>
