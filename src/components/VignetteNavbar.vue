@@ -23,10 +23,12 @@
                     <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="add">Ajouter une
                             recette</a></li>
                     <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="vers">Retour</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="modify">Modifier la
+                    <li class="nav-item" v-if="displayLinksForRecipeModification"><a class="nav-link"
+                            data-bs-dismiss="offcanvas" @click="modify">Modifier la
                             recette</a></li>
-                    <li class="nav-item" data-bs-toggle="modal" data-bs-target="#modal1"><a class="nav-link"
-                            data-bs-dismiss="offcanvas" @click="erase">Supprimer la
+                    <li class="nav-item" v-if="displayLinksForRecipeModification" data-bs-toggle="modal"
+                        data-bs-target="#modal1"><a class="nav-link" data-bs-dismiss="offcanvas"
+                            @click="erase">Supprimer la
                             recette</a></li>
                 </ul>
             </div>
@@ -82,6 +84,12 @@ export default {
         navbar: {
             type: Object
         },
+    },
+    computed: {
+        displayLinksForRecipeModification() {
+            let allowedRouteNames = ['recetteUniq']
+            return allowedRouteNames.includes(this.$route.name)
+        }
     },
     methods: {
         vers() {
