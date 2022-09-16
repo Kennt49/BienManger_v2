@@ -1,34 +1,34 @@
 # bien-manger
 
 ## Description
-```
-Ce pojet consiste à créer un site internet contenant des recettes de cuisine.
+
+Ce projet consiste à créer un site internet contenant des recettes de cuisine.
 Le but étant de le façonnerde mannière à se que sont interface soit facile d'utilisation. Une barre de recherche est mis à disposition pour naviger entre les différentes recettes en y indiquant soit un ingrédients soit un #Tag ou simplement le nom de la recette souhaitée.
 
 Nous pourrons retrouver dans les pages recettes leurs ingredients, sa description sommaire, les différentes étapes à suivre et la saison à laquel elle est associée. L'utilisateur lui même aura la posibilité d'en ajouter une dans la base de donnée du site, grace à une page dédiée.
-```
+
+Dépendance: ce projet fonctionne avec un dossier back externe pour pouvoir lier la base de donnée aux vue.
+
 
 ### Outils utilisés
-```
-Pour se projet nous avons utilisés:
 
--Visual Studio Code: version ->
+Pour ce projet nous avons utilisé:
 
--Node: version -> 16.17.0
 
--VueJS: version -> 3
+- Node: version -> 16.17.0
 
--Bootstrap: version -> 5.2.0
+- VueJS: version -> 3
 
--Base de donnée MySql: version -> 5.7.36
+- Bootstrap: version -> 5.2.0
 
--mysql2: version -> 2.3.3 ou plus
+- Base de donnée MySql: version -> 5.7.36
 
--Sequelize: version -> 6.21.24 ou plus
+- mysql2: version -> 2.3.3 ou plus
 
--TypeScript: version -> 4.7.4 ou plus
+- Sequelize: version -> 6.21.24 ou plus
 
-```
+- TypeScript: version -> 4.7.4 ou plus
+
 
 ### Maquettes figma
 >Maquette version Smartphone
@@ -62,8 +62,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Créateurs
  
--Jean-Yves Rousseau
+- Jean-Yves Rousseau
 
--Julien Lechevalier
+- Julien Lechevalier
 
--Kenneth Gohin
+- Kenneth Gohin
