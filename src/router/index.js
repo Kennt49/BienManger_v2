@@ -3,7 +3,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import retourDataView from '@/views/retourDataView'
 import RecetteUniqView from '@/views/RecetteUniqView'
 import ajoutView from '@/views/ajoutView'
-import supprimerView from '@/views/SupprimerView'
 
 const routes = [
 
@@ -21,11 +20,6 @@ const routes = [
     path: '/recette',
     name: 'recette',
     component: ajoutView
-  },
-  {
-    path: '/supprimer',
-    name: 'supprimer',
-    component: supprimerView
   }
 ]
 

@@ -41,7 +41,8 @@
                         <p>La recette a bien été supprimée !</p>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary text-white" aria-labelledby="Retour à l'acceuil">OK</button>
+                        <button class="btn btn-primary text-white" aria-labelledby="Retour à l'acceuil"
+                            data-bs-dismiss="modal" @click="vers">OK</button>
                     </div>
                 </div>
             </div>
@@ -50,5 +51,17 @@
 </template>
 
 <script>
-
+export default {
+    name: 'VignettePopup',
+    props: {
+        popup: {
+            type: Object
+        },
+    },
+    methods: {
+        vers() {
+            this.$router.push("/retourData");
+        }
+    }
+}
 </script>

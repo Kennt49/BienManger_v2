@@ -2,6 +2,7 @@
   <VignetteNavbar></VignetteNavbar>
   <router-view class="back-img-cover" />
   <VignetteEndBar />
+
 </template>
 <script>
 import VignetteNavbar from '@/components/VignetteNavbar'

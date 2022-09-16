@@ -26,7 +26,7 @@
                 <div>Qté</div>
             </div>
 
-            <div  v-for="(ingredient, index) in ingredients" class= "gridblock-10col text-align-left" :key="index">
+            <div v-for="(ingredient, index) in ingredients" class="gridblock-10col text-align-left" :key="index">
                 <input :type="text" :readonly="readOnly" class="text-capitalize back-hidden"
                     v-model="ingredient.Name" />
                 <input :type="text" :readonly="readOnly" class="back-hidden"
@@ -41,16 +41,19 @@
                     </li>
                 </ul>
             </div>
-            
+
         </div>
+        <VignettePopup />
     </main>
 </template>
 
 <script>
+import VignettePopup from '@/components/VignettePopup'
 
 export default {
     name: 'RecetteUniqView',
     components: {
+        VignettePopup
     },
     computed: {
         etapes() {
