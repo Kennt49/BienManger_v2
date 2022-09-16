@@ -25,12 +25,53 @@
                     <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="vers">Retour</a></li>
                     <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="modify">Modifier la
                             recette</a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" @click="erase">Supprimer la
+                    <li class="nav-item" data-bs-toggle="modal" data-bs-target="#modal1"><a class="nav-link"
+                            data-bs-dismiss="offcanvas" @click="erase">Supprimer la
                             recette</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="modal fade" data-bs-backdrop="static" id="modal1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" aria-labelledby="suppression confirmée">
+                        Confirmation
+                    </h5>
+                </div>
+                <div class="modal-body" aria-describedby="content"
+                    aria-labelledby="voulez-vous vraiment supprimer cette recette">
+                    <p>Voulez-vous vraiment supprimer cette recette ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary text-white"
+                        aria-labelledby="Annule l'action de suppression de la recette"
+                        data-bs-dismiss="modal">Non</button>
+                    <button class="btn btn-primary text-white"
+                        aria-labelledby="Confirme l'action de suppression de la recette" data-bs-toggle="modal"
+                        data-bs-target="#modal2">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" data-bs-backdrop="static" id="modal2">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" aria-labelledby="suppression confirmée">
+                        Confirmation
+                    </h5>
+                </div>
+                <div class="modal-body" aria-describedby="content" aria-labelledby="La recette a bien été supprimée !">
+                    <p>La recette a bien été supprimée !</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary text-white" aria-labelledby="Retour à l'acceuil">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -53,7 +94,7 @@ export default {
             this.$router.push("/recette");
         },
         erase() {
-            this.$router.push("/supprimer");
+            this.$router.push("");
         },
     }
 }

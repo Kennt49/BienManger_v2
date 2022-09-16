@@ -8,7 +8,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" aria-labelledby="suppression confirmée">
+                        <h5 class="modal-title" aria-labelledby="confirmation de suppression">
                             Confirmation
                         </h5>
                     </div>
@@ -21,7 +21,27 @@
                             aria-labelledby="Annule l'action de suppression de la recette"
                             data-bs-dismiss="modal">Non</button>
                         <button class="btn btn-primary text-white"
-                            aria-labelledby="Confirme l'action de suppression de la recette">Oui</button>
+                            aria-labelledby="Confirme l'action de suppression de la recette" data-bs-toggle="modal"
+                            data-bs-target="#modal2">Oui</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal-->
+        <div class="modal fade" data-bs-backdrop="static" id="modal2">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" aria-labelledby="suppression confirmée">
+                            Confirmation
+                        </h5>
+                    </div>
+                    <div class="modal-body" aria-describedby="content"
+                        aria-labelledby="La recette a bien été supprimée !">
+                        <p>La recette a bien été supprimée !</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary text-white" aria-labelledby="Retour à l'acceuil">OK</button>
                     </div>
                 </div>
             </div>
