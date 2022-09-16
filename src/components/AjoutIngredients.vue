@@ -1,22 +1,21 @@
 <template>
     <div>
-        <legend>liste des ingredients</legend>
-        <div v-for="(elem, index) of elements" :key="index">
-            <select v-model="elem.ingredients_id">
-                <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id> {{ingred.Name}}</option>
+        <legend>Ingrédients nécessaires</legend>
+        <p>Choisissez un ingrédient déjà existant ou ajoutez en un nouveau</p>
+        <div class="opacity8 styleblock-radius color" style="background-color: #7d8994;"
+            v-for="(elem, index) of elements" :key="index">
+            <select class="btn btn-secondary margin" v-model="elem.ingredients_id">
+                <option v-for="(ingred, i) of ingredients" :key=i :value=ingred.id>{{ingred.Name}}</option>
             </select>
-            <input type="text" v-model="elem.quantity" />
-
-            <br />
+            <input class="backblock-color styleblock-radius" type="text" v-model="elem.quantity" /> <br>
+            <a @click="ajoutIngre">Ajouter un ingredient</a>
         </div>
-        <a @click="ajoutIngre">Ajouter un ingredient</a>
+
     </div>
     <div>
-        <h5>Entre un nouvelle ingredient</h5>
         <input type="text" v-model="NewIngred.Name" />
         <input type="text" v-model="NewIngred.unit" />
         <p @click="newIngEnv">propose</p>
-
     </div>
 </template>
 <script>

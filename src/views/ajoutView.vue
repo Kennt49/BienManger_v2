@@ -13,7 +13,7 @@
         </div>
         <div>
             <label>Description de la recette :</label>
-            <input class=" backblock-color opacity8 styleblock-radius text-align-center" type="text"
+            <input class="backblock-color opacity8 styleblock-radius text-align-center" type="text"
                 v-model="this.collect.description" placeholder="Ajoutez votre description" />
         </div>
         <div id="v-model-select" class="margin"> A preparer en <br>
@@ -30,7 +30,7 @@
         </div>
         <p class=" btn btn-secondary opacity8 little-margin-top" v-if="step == 0" @click="validRecette">Passer à la
             seconde étape</p>
-        <div class="btn btn-secondary" v-if="step === 1">
+        <div v-if="step === 1">
             <AjoutIngredients ref="ajoutIngredients" :parametreFonction="parametreFonction" :ingredients="ingredients"
                 :IdRecette="IdRecette">
             </AjoutIngredients>
