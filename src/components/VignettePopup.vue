@@ -1,7 +1,7 @@
 <template>
 
 
-    <!--Modal-->
+    <!--Modal1-->
     <div class="modal fade" data-bs-backdrop="static" id="modal1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -25,7 +25,9 @@
             </div>
         </div>
     </div>
-    <!--Modal-->
+
+
+    <!--Modal2-->
     <div class="modal fade" data-bs-backdrop="static" id="modal2">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -45,6 +47,26 @@
         </div>
     </div>
 
+
+    <!--Modal3-->
+    <div class="modal fade" data-bs-backdrop="static" id="modal3">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" aria-labelledby="ajout confirmée">
+                        Confirmation
+                    </h5>
+                </div>
+                <div class="modal-body" aria-describedby="content" aria-labelledby="La recette a bien été ajoutée !">
+                    <p>La recette a bien été ajoutée !</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary text-white" aria-labelledby="Retour à l'acceuil"
+                        data-bs-dismiss="modal" @click="vers">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>

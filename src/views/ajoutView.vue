@@ -42,9 +42,12 @@
             <AjoutEtape ref="ajoutEtape" :parametreFonction="parametreFonction" :IdRecette="IdRecette"></AjoutEtape>
             <div>
 
-                <p class=" backblock-color opacity8 styleblock-radius" @click="validIngredientEtape">Valider</p>
+                <p class=" backblock-color opacity8 styleblock-radius" @click="validIngredientEtape"
+                    data-bs-toggle="modal" data-bs-target="#modal3">
+                    Valider</p>
             </div>
         </div>
+        <VignettePopup />
     </main>
 
 </template>
@@ -52,14 +55,16 @@
 
 import AjoutIngredients from '@/components/AjoutIngredients.vue';
 import AjoutEtape from '@/components/AjoutEtape.vue';
+import VignettePopup from '@/components/VignettePopup'
+
 const parametreFonction = "add";
 
 export default {
     name: 'ajoutView',
     components: {
         AjoutIngredients,
-        AjoutEtape
-
+        AjoutEtape,
+        VignettePopup
     },
     computed: {
 
