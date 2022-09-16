@@ -13,7 +13,7 @@
         </div>
         <div>
             <label>Description de la recette :</label>
-            <input class=" backblock-color opacity8 styleblock-radius text-align-center" type="text"
+            <input class="backblock-color opacity8 styleblock-radius text-align-center" type="text"
                 v-model="this.collect.description" placeholder="Ajoutez votre description" />
         </div>
         <div id="v-model-select" class="margin"> A preparer en <br>
