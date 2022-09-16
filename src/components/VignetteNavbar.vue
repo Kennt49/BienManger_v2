@@ -46,16 +46,13 @@ export default {
         },
 
     },
-<<<<<<< HEAD
 
-=======
     computed: {
         displayLinksForRecipeModification() {
             let allowedRouteNames = ['recetteUniq']
             return allowedRouteNames.includes(this.$route.name)
         }
     },
->>>>>>> 213ea3a95e63546c3fe89814a7edde332c6599bd
     methods: {
         vers() {
             this.$router.push("/retourData");
