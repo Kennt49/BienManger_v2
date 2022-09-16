@@ -1,4 +1,4 @@
-# bien-manger
+#  Projet Bien-Manger
 
 ## Description
 
@@ -60,7 +60,7 @@ ____________________________________________________
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Créateurs
+### Développeurs
  
 - Jean-Yves Rousseau
 
