@@ -2,32 +2,37 @@
 
     <main>
         <div>
-            <label for="titre">Titre de la recette</label>
+            <label for="titre" class="little-margin-top">Titre de la recette</label>
             <input class="text-align-center margin backblock-color opacity8 styleblock-radius" type="text"
-                v-model="this.collect.Name" placeholder="couscous" /><br>
+                v-model="this.collect.Name" placeholder="Insérez le nom" />
         </div>
-        <label for="guest">Nombre de convives :</label>
-        <input class=" backblock-color opacity8 styleblock-radius text-align-center" type="text"
-            v-model="this.collect.guest" placeholder="2" /><br>
-        <label >Description de la recette :</label>
-        <input class=" backblock-color opacity8 styleblock-radius text-align-center" type="text"
-            v-model="this.collect.description" placeholder="description recette" /><br>
-        <div   id="v-model-select" > A prepare en :
-            <select   v-model="this.collect.saison_id">
+        <div>
+            <label for="guest">Nombre de personnes</label>
+            <input class=" backblock-color opacity8 styleblock-radius text-align-center" type="text"
+                v-model="this.collect.guest" />
+        </div>
+        <div>
+            <label>Description de la recette :</label>
+            <input class=" backblock-color opacity8 styleblock-radius text-align-center" type="text"
+                v-model="this.collect.description" placeholder="Ajoutez votre description" />
+        </div>
+
+        <div id="v-model-select" class="margin"> A preparer en <br>
+            <select v-model="this.collect.saison_id" class="btn btn-secondary">
                 <option disabled value="">Choisissez la saison</option>
                 <option v-for="(sais, i) of saisons" :key=i :value=sais.id> {{sais.Name}}</option>
             </select>{{ this.collect.saison }}
         </div>
-       
-        <div id="v-model-select" class=""> A servir en :
-            <select v-model="this.collect.plat_id">
-                <option disabled value="">Choisissez le type de plat </option>
+
+        <div id="v-model-select" class="dropdown margin"> A servir en <br>
+            <select class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" v-model="this.collect.plat_id">
+                <option disabled value="">Choisissez le type</option>
                 <option v-for="(plat ,i ) of plats" :key=i :value=plat.id>
-                    {{ plat.menu }}
-                </option>
+                    {{ plat.menu }}</option>
             </select>
         </div>
-        <p class=" backblock-color opacity8 styleblock-radius"  v-if="step == 0" @click="validRecette">Valider</p>
+        <p class=" backblock-color opacity8 styleblock-radius" v-if="step == 0" @click="validRecette">Valider</p>
 
         <div v-if="step === 1">
 
@@ -37,7 +42,7 @@
             <AjoutEtape ref="ajoutEtape" :parametreFonction="parametreFonction" :IdRecette="IdRecette"></AjoutEtape>
             <div>
 
-                <p class=" backblock-color opacity8 styleblock-radius"  @click="validIngredientEtape">Valider</p>
+                <p class=" backblock-color opacity8 styleblock-radius" @click="validIngredientEtape">Valider</p>
             </div>
         </div>
     </main>

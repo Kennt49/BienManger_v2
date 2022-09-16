@@ -1,7 +1,7 @@
 <template>
 
     <main>
-        <div>
+        <div v-if="uneRecette">
             <h1>
                 <textarea :readonly="readOnly" class="bold margin-top back-hidden text-align-center text-capitalize"
                     v-model="uneRecette.Name" />
