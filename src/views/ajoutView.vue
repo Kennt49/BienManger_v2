@@ -17,28 +17,25 @@
                 v-model="this.collect.description" placeholder="Ajoutez votre description" />
         </div>
         <div id="v-model-select" class="margin"> A preparer en <br>
-            <select v-model="this.collect.saison_id" class="btn btn-secondary">
+            <select v-model="this.collect.saison_id" class="btn btn-secondary opacity8">
                 <option disabled value="">Choisissez la saison</option>
                 <option v-for="(sais, i) of saisons" :key=i :value=sais.id>{{sais.Name}}</option>
             </select>{{ this.collect.saison }}
         </div>
         <div id="v-model-select" class="margin"> A servir en <br>
-            <select v-model="this.collect.plat_id" class="btn btn-secondary">
+            <select v-model="this.collect.plat_id" class="btn btn-secondary opacity8">
                 <option disabled value="">Choisissez le type</option>
                 <option v-for="(plat ,i ) of plats" :key=i :value=plat.id>{{ plat.menu }}</option>
             </select>
         </div>
-        <p class=" backblock-color opacity8 styleblock-radius" v-if="step == 0" @click="validRecette">Passer à la
+        <p class=" btn btn-secondary opacity8 little-margin-top" v-if="step == 0" @click="validRecette">Passer à la
             seconde étape</p>
-
-        <div v-if="step === 1">
-
+        <div class="btn btn-secondary" v-if="step === 1">
             <AjoutIngredients ref="ajoutIngredients" :parametreFonction="parametreFonction" :ingredients="ingredients"
                 :IdRecette="IdRecette">
             </AjoutIngredients>
             <AjoutEtape ref="ajoutEtape" :parametreFonction="parametreFonction" :IdRecette="IdRecette"></AjoutEtape>
             <div>
-
                 <p class=" backblock-color opacity8 styleblock-radius" @click="validIngredientEtape">Valider</p>
             </div>
         </div>

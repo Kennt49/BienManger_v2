@@ -14,18 +14,17 @@
                 </div>
                 <div class="backblock-color opacity8 styleblock-radius">A préparer en
                     <input disabled class="bold text-align-center backblock-color text-capitalize"
-                        v-model="uneRecette.saison.Name" />
+                        style="border-radius: 0 0 15% 15%;" v-model="uneRecette.saison.Name" />
                 </div>
                 <div class="backblock-color opacity8 styleblock-radius">A servir <br> en
                     <input disabled class="bold text-align-center backblock-color text-capitalize"
-                        v-model="uneRecette.plat.menu" />
+                        style="border-radius: 0 0 15% 15%;" v-model="uneRecette.plat.menu" />
                 </div>
             </div>
             <div class="gridblock-10col bold text-align-left margin-top">
                 <div>Ingrédients</div>
                 <div>Qté</div>
             </div>
-
             <div v-for="(ingredient, index) in ingredients" class="gridblock-10col text-align-left" :key="index">
                 <input :type="text" :readonly="readOnly" class="text-capitalize back-hidden"
                     v-model="ingredient.Name" />
@@ -35,9 +34,11 @@
             <div class="bold text-align-left margin-top">Etapes</div>
             <div class="gridblock-7col text-align-left backblock-color opacity8 styleblock-radius"
                 v-for="(etape, index) in etapes" :key="index">
-                <input :type="text" :readonly="readOnly" class="back-hidden" v-model="etape.number" />
+                <input :type="text" :readonly="readOnly" style="color: #fff;" class="back-hidden"
+                    v-model="etape.number" />
                 <ul>
-                    <li><textarea :readonly="readOnly" class="back-hidden" v-model="etape.content" />
+                    <li><textarea :readonly="readOnly" style="color: #fff;" class="back-hidden"
+                            v-model="etape.content" />
                     </li>
                 </ul>
             </div>

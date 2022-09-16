@@ -34,7 +34,8 @@ input {
 }
 
 .backblock-color {
-    background-color: #CBEFB6;
+    background-color: #6c757d;
+    color: #fff;
 }
 
 .backblock-title-color {
@@ -81,7 +82,7 @@ input {
 }
 
 .little-margin-top {
-    margin-top: 5%;
+    margin-top: 12%;
 }
 
 .margin-top {
