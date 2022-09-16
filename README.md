@@ -10,7 +10,24 @@ Nous pourrons retrouver dans les pages recettes leurs ingredients, sa descriptio
 
 ### Outils utilisés
 ```
-Pour se projet nous avons utilisés VueJS ainsi que plusieurs de ces plugins(router et store), et bootstrap.
+Pour se projet nous avons utilisés:
+
+-Visual Studio Code: version ->
+
+-Node: version -> 16.17.0
+
+-VueJS: version -> 3
+
+-Bootstrap: version -> 5.2.0
+
+-Base de donnée MySql: version -> 5.7.36
+
+-mysql2: version -> 2.3.3 ou plus
+
+-Sequelize: version -> 6.21.24 ou plus
+
+-TypeScript: version -> 4.7.4 ou plus
+
 ```
 
 ### Maquettes figma
@@ -41,3 +58,12 @@ ____________________________________________________
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Créateur
+ 
+-Jean-Yves Rousseau
+
+-Julien Lechevalier
+
+-Kenneth Gohin
